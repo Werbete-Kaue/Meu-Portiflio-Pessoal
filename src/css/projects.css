@@ -9,8 +9,8 @@
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 200px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(auto-fill, 400px);
     gap: 1rem;
 }
 
@@ -36,14 +36,14 @@
     transform: scale(1.02);
 }
 
-.project-card.large {
+/* .project-card.large {
     grid-column: span 2;
     grid-row: span 2;
-}
+} */
 
-.project-card.small {
+/* .project-card.small {
     grid-column: span 1;
-}
+} */
 
 .project-info {
     position: absolute;
@@ -81,10 +81,10 @@
         margin: 1rem;
     }
 
-    .project-card.large, .project-card.small {
+    /* .project-card.large, .project-card.small {
         grid-column: span 1;
         grid-row: span 1;
-    }
+    } */
 
     .project-info {
         position: static;
