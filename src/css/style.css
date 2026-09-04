@@ -178,6 +178,265 @@ h2 {
     50% {opacity: 0;}
 }
 
+/* EDUCATION */
+
+/* EDUCATION */
+
+.education {
+    padding: 70px 0;
+}
+
+.education-card {
+    background-color: var(--card);
+    border: 1px solid #222;
+    border-radius: 20px;
+    padding: 2rem;
+
+    transition:
+        border-color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.education-card:hover {
+    border-color: rgba(0, 255, 136, 0.4);
+    transform: translateY(-3px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Cabeçalho da formação */
+
+.education-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+
+/* Logo */
+
+.education-logo {
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0.8rem;
+
+    background-color: #fff;
+    border-radius: 14px;
+}
+
+.education-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+/* Informações */
+
+.education-title {
+    flex: 1;
+}
+
+.education-status {
+    display: inline-block;
+
+    padding: 0.25rem 0.7rem;
+    margin-bottom: 0.6rem;
+
+    background-color: rgba(0, 255, 136, 0.1);
+    border: 1px solid rgba(0, 255, 136, 0.3);
+    border-radius: 50px;
+
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.education-title h4 {
+    font-size: 1.4rem;
+    margin-bottom: 0.2rem;
+}
+
+.education-institution {
+    color: var(--text);
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.education-period {
+    margin-top: 0.2rem;
+
+    color: var(--text-dim);
+    font-size: 0.85rem;
+}
+
+
+/* Descrição */
+
+.education-description {
+    max-width: 850px;
+
+    margin-top: 1.8rem;
+
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+
+/* Projetos */
+
+.education-projects {
+    margin-top: 2rem;
+    padding-top: 1.8rem;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.education-projects-title {
+    margin-bottom: 1rem;
+
+    color: var(--text);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.education-projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+
+/* Mini card do projeto */
+
+.education-project {
+    text-decoration: none;
+    color: var(--text);
+}
+
+.education-project-image {
+    position: relative;
+
+    width: 100%;
+    aspect-ratio: 16 / 9;
+
+    overflow: hidden;
+    border-radius: 12px;
+
+    background-color: #0a0a0a;
+    border: 1px solid #222;
+}
+
+.education-project-image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+    object-fit: cover;
+
+    transition: transform 0.4s ease;
+}
+
+
+/* Overlay */
+
+.education-project-overlay {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgba(0, 0, 0, 0.65);
+
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 600;
+
+    opacity: 0;
+
+    transition: opacity 0.3s ease;
+}
+
+.education-project:hover .education-project-overlay {
+    opacity: 1;
+}
+
+.education-project:hover img {
+    transform: scale(1.06);
+}
+
+.education-project > p {
+    margin-top: 0.6rem;
+
+    color: var(--text-dim);
+    font-size: 0.85rem;
+
+    transition: color 0.3s ease;
+}
+
+.education-project:hover > p {
+    color: var(--accent);
+}
+
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 768px) {
+
+    .education {
+        padding: 50px 1.5rem;
+    }
+
+    .education-card {
+        padding: 1.5rem;
+    }
+
+    .education-projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media (max-width: 520px) {
+
+    .education-header {
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .education-logo {
+        width: 60px;
+        height: 60px;
+        padding: 0.6rem;
+    }
+
+    .education-title h4 {
+        font-size: 1.15rem;
+    }
+
+    .education-institution {
+        font-size: 0.85rem;
+    }
+
+    .education-description {
+        font-size: 0.9rem;
+    }
+
+    .education-projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* PROJECTS */
 
 .projects {
