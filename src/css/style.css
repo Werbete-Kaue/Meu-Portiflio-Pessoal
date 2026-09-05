@@ -323,6 +323,14 @@ h2 {
 
 .education-project {
     color: var(--text);
+    border-radius: 14px;
+
+    transition: transform 0.35s ease;
+    filter: 0.35s ease;
+}
+
+.education-project:hover {
+    transform: translateY(-8px);
 }
 
 .education-project-image {
@@ -336,6 +344,18 @@ h2 {
 
     background-color: #0a0a0a;
     border: 1px solid #222;
+
+    transition:
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.education-project:hover .education-project-image {
+    border-color: rgba(0, 255, 136, 0.55);
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.4),
+        0 0 20px rgba(0, 255, 136, 0.08);
 }
 
 .education-project-image img {
