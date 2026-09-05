@@ -346,49 +346,6 @@ h2 {
 }
 
 
-/* Overlay */
-
-.education-project-overlay {
-    position: absolute;
-    inset: 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background-color: rgba(0, 0, 0, 0.65);
-
-    color: #fff;
-    font-size: 0.85rem;
-    font-weight: 600;
-
-    opacity: 0;
-
-    transition: opacity 0.3s ease;
-}
-
-.education-project:hover .education-project-overlay {
-    opacity: 1;
-}
-
-.education-project:hover img {
-    transform: scale(1.06);
-}
-
-.education-project > p {
-    margin-top: 0.6rem;
-
-    color: var(--text-dim);
-    font-size: 0.85rem;
-
-    transition: color 0.3s ease;
-}
-
-.education-project:hover > p {
-    color: var(--accent);
-}
-
-
 /* RESPONSIVIDADE */
 
 @media (max-width: 768px) {
