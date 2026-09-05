@@ -205,6 +205,10 @@ h2 {
         box-shadow 0.3s ease;
 }
 
+.education-card + .education-card {
+    margin-top: 2rem;
+}
+
 .education-card:hover {
     border-color: rgba(0, 255, 136, 0.4);
     transform: translateY(-3px);
