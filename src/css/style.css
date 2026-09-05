@@ -376,6 +376,23 @@ h2 {
     filter: brightness(1.08);
 }
 
+.education-project > p {
+    margin-top: 0.8rem;
+
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    font-weight: 500;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.education-project:hover > p {
+    color: var(--accent);
+    transform: translateX(4px);
+}
+
 
 /* RESPONSIVIDADE */
 
