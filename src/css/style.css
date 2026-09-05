@@ -327,6 +327,8 @@ h2 {
 
     transition: transform 0.35s ease;
     filter: 0.35s ease;
+
+    cursor: pointer;
 }
 
 .education-project:hover {
