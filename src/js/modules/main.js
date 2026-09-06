@@ -36,3 +36,49 @@ export function initTypewriter(){
     }
     type()
 }
+
+/* FUNCIONALIDA MODAL */
+
+const projects = document.querySelectorAll('.education-project');
+
+const modal = document.getElementById('projectModal');
+const modalImage = document.getElementById('projectModalImage');
+const modalTitle = document.getElementById('projectModalTitle');
+const modalClose = document.getElementById('projectModalClose');
+
+projects.forEach((project) => {
+    project.addEventListener('click', () => {
+
+        const image = project.querySelector('img');
+        const title = project.querySelector('p');
+
+        modalImage.src = image.src;
+        modalImage.alt = image.alt;
+
+        modalTitle.textContent = title.textContent;
+
+        modal.classList.add('active');
+    });
+});
+
+function closeProjectModal() {
+    modal.classList.remove('active');
+
+    setTimeout(() => {
+        modalImage.src = '';
+    }, 300);
+}
+
+modalClose.addEventListener('click', closeProjectModal);
+
+modal.addEventListener('click', (event) => {
+    if (event.target === modal) {
+        closeProjectModal();
+    }
+});
+
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+        closeProjectModal();
+    }
+});
