@@ -458,13 +458,16 @@ h2 {
     transform: scale(1);
 }
 
-.project-modal-content img {
+.project-modal-content video {
     width: 100%;
     max-height: 75vh;
 
     display: block;
 
+    margin: 0 auto;
+
     object-fit: contain;
+    object-position: center;
 
     border-radius: 14px;
 
