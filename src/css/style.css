@@ -366,18 +366,26 @@ h2 {
         0 0 20px rgba(0, 255, 136, 0.08);
 }
 
-.education-project-image img {
+.education-project-image img,
+.education-project-image video {
     width: 100%;
     height: 100%;
+
     display: block;
+
     object-fit: cover;
+    object-position: center;
+
+    margin: 0;
+    padding: 0;
 
     transition:
         transform 0.5s ease,
         filter 0.4s ease;
 }
 
-.education-project:hover .education-project-image img {
+.education-project:hover .education-project-image img,
+.education-project:hover .education-project-image video {
     transform: scale(1.025);
     filter: brightness(1.08);
 }
