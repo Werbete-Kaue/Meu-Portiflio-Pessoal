@@ -1167,7 +1167,9 @@ nav {
 .skill-card {
     position: relative;
 
-    min-height: 145px;
+.skill-card {
+    min-height: 125px;
+}
 
     display: flex;
     align-items: flex-start;
