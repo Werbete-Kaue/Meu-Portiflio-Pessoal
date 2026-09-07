@@ -1380,123 +1380,225 @@ nav {
 
 }
 
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
 
 .main-footer {
-    padding: 60px 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    text-align: center;
-    background-color: var(--bg);
+    margin-top: 40px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0, 255, 136, 0.015),
+            transparent 40%
+        ),
+        var(--bg);
 }
 
-.footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
+
+.footer-container {
+    padding-top: 70px;
+    padding-bottom: 35px;
+}
+
+
+/* TOPO */
+
+.footer-top {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
+
+    justify-content: space-between;
+
+    gap: 5rem;
+
+    padding-bottom: 50px;
 }
 
-.box-logo {
-    width: 45px;
-    height: 45px;
-    background-color: transparent;
-    border: 2px solid var(--accent);
-    border-radius: 8px;
+
+/* IDENTIDADE */
+
+.footer-brand {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 1.2rem;
+
+    max-width: 520px;
+}
+
+
+.footer-logo {
+    width: 52px;
+    height: 52px;
+
+    flex-shrink: 0;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    cursor: pointer;
-    box-shadow: 0 0 10px rgba(0, 255, 127, 0.2);
-}
 
-.box-logo:hover {
-    background-color: var(--bg);
-    transform: translateY(-3px);
-    box-shadow: 0 0 20px rgba(0, 255, 127, 0.5);
-}
+    border: 2px solid var(--accent);
+    border-radius: 10px;
 
-.box-logo:hover .f-logo:hover {
-    color: var(--accent);
-}
-
-.f-logo{
     color: var(--text);
+
+    font-size: 1.6rem;
     font-weight: 800;
-    font-size: 1.4rem;
-    line-height: 1;
+
+    box-shadow:
+        0 0 20px rgba(0, 255, 136, 0.06);
 }
 
-.footer-socials {
-    display: flex;
-    gap: 25px;
+
+.footer-brand-text h3 {
+    margin-bottom: 0.5rem;
+
+    font-size: 1.25rem;
 }
 
-.footer-socials a {
+
+.footer-brand-text p {
+    max-width: 420px;
+
     color: var(--text-dim);
+
+    font-size: 0.9rem;
+
+    line-height: 1.8;
+}
+
+
+/* LINKS */
+
+.footer-links {
+    display: flex;
+
+    gap: clamp(3rem, 6vw, 7rem);
+}
+
+
+.footer-column {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 0.7rem;
+}
+
+
+.footer-column > span {
+    margin-bottom: 0.4rem;
+
+    color: var(--accent);
+
+    font-size: 0.72rem;
+    font-weight: 700;
+
+    letter-spacing: 0.12em;
+
+    text-transform: uppercase;
+}
+
+
+.footer-column a {
+    position: relative;
+
+    color: var(--text-dim);
+
+    font-size: 0.88rem;
+
     text-decoration: none;
-    font-size: 0.95rem;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
 }
 
-.footer-socials a i {
-    font-size: 1.5rem;
-}
 
-.footer-socials a:hover {
+.footer-column a:hover {
     color: var(--text);
+
+    transform: translateX(4px);
 }
 
-.footer-copyright {
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.6);
-    letter-spacing: 0.5px;
+
+/* PARTE INFERIOR */
+
+.footer-bottom {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 2rem;
+
+    padding-top: 25px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+
+    color: rgba(255, 255, 255, 0.45);
+
+    font-size: 0.78rem;
 }
 
-.footer-copyright strong {
-    color: #fff; /* Seu nome fica mais nítido */
+
+.footer-bottom strong {
+    color: rgba(255, 255, 255, 0.75);
+
     font-weight: 600;
 }
 
 
+/* RESPONSIVIDADE */
 
-@media (max-width: 768px) {
-    .main-footer {
-        padding: 40px 15px; 
+@media (max-width: 800px) {
+
+    .footer-top {
+        flex-direction: column;
+
+        gap: 3rem;
     }
 
-    .footer-content {
-        gap: 15px;
+    .footer-links {
+        width: 100%;
+
+        justify-content: flex-start;
+
+        gap: 5rem;
     }
 
-    .footer-socials {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1.5rem;
-    }
-
-    .footer-socials a {
-        font-size: 0.9rem;
-    }
 }
 
-@media (max-width: 480px) {
-    .main-footer {
-        padding: 30px 10px;
+
+@media (max-width: 520px) {
+
+    .footer-container {
+        padding-top: 50px;
+        padding-bottom: 25px;
     }
 
-    .footer-copyright {
-        font-size: 0.8rem;
-        line-height: 1.4;
-        max-width: 250px;
-        margin: 0 auto;
+    .footer-brand {
+        flex-direction: column;
     }
 
+    .footer-links {
+        flex-direction: column;
 
-    .box-logo {
-        width: 35px;
-        height: 35px;
+        gap: 2.5rem;
     }
+
+    .footer-bottom {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 0.7rem;
+    }
+
 }
