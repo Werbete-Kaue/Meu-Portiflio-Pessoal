@@ -129,118 +129,156 @@ nav {
 ========================= */
 
 .hero {
+    position: relative;
+
     min-height: calc(100vh - 80px);
 
     display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+    grid-template-columns: minmax(0, 1.1fr) minmax(420px, 0.9fr);
 
     align-items: center;
 
-    gap: clamp(3rem, 6vw, 7rem);
+    gap: clamp(2rem, 4vw, 5rem);
 
-    padding-top: 80px;
-    padding-bottom: 80px;
+    padding-top: 70px;
+    padding-bottom: 40px;
+
+    overflow: hidden;
 }
 
 .hero-content {
     max-width: 850px;
+
+    position: relative;
+    z-index: 3;
 }
+
+/* =========================
+   FOTO DO HERO
+========================= */
 
 .hero-photo-area {
     position: relative;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    align-self: stretch;
 
-    min-height: 520px;
+    min-height: 650px;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
 }
 
-.hero-photo-glow {
+
+/* CÍRCULO VERDE ATRÁS DA FOTO */
+
+.hero-photo-circle {
     position: absolute;
 
-    width: 380px;
-    height: 380px;
+    width: clamp(360px, 35vw, 560px);
+    aspect-ratio: 1;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    border: 2px solid rgba(0, 255, 136, 0.8);
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 60px rgba(0, 255, 136, 0.08),
+        inset 0 0 60px rgba(0, 255, 136, 0.03);
+
+    z-index: 1;
+}
+
+
+/* BRILHO VERDE ATRÁS */
+
+.hero-photo-area::before {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    left: 50%;
+    top: 55%;
+
+    transform: translate(-50%, -50%);
 
     border-radius: 50%;
 
     background: radial-gradient(
         circle,
-        rgba(0, 255, 136, 0.18),
-        rgba(0, 255, 136, 0.05) 45%,
+        rgba(0, 255, 136, 0.15) 0%,
+        rgba(0, 255, 136, 0.05) 40%,
         transparent 70%
     );
 
-    filter: blur(8px);
+    filter: blur(20px);
+
+    z-index: 0;
 }
 
-.hero-photo-frame {
+
+/* FOTO */
+
+.hero-photo {
     position: relative;
 
-    width: min(100%, 400px);
-    aspect-ratio: 4 / 5;
-
-    overflow: hidden;
-
-    border-radius: 28px;
-
-    border: 1px solid rgba(255, 255, 255, 0.1);
-
-    background-color: #0d0d0d;
-
-    box-shadow:
-        0 25px 70px rgba(0, 0, 0, 0.5);
-
-    z-index: 2;
-}
-
-.hero-photo-frame img {
-    width: 100%;
-    height: 100%;
+    width: min(100%, 590px);
+    height: auto;
 
     display: block;
 
-    object-fit: cover;
-    object-position: center;
+    object-fit: contain;
 
-    transition: transform 0.5s ease;
+    z-index: 2;
+
+    filter:
+        drop-shadow(0 30px 40px rgba(0, 0, 0, 0.55))
+        drop-shadow(0 0 18px rgba(0, 255, 136, 0.08));
 }
 
-.hero-photo-frame:hover img {
-    transform: scale(1.025);
-}
 
-.hero-photo-detail {
+/* TEXTO DECORATIVO */
+
+.hero-photo-text {
     position: absolute;
 
-    z-index: 3;
-
-    padding: 0.6rem 1rem;
-
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-
-    background-color: rgba(10, 10, 10, 0.85);
-
-    backdrop-filter: blur(10px);
-
-    font-size: 0.8rem;
-    font-weight: 600;
-}
-
-.hero-photo-detail-top {
-    top: 80px;
-    left: 0;
-
-    color: var(--accent);
-}
-
-.hero-photo-detail-bottom {
+    top: 30px;
     right: 0;
-    bottom: 90px;
 
-    color: var(--text-dim);
+    display: flex;
+    flex-direction: column;
+
+    gap: 0.15rem;
+
+    color: rgba(255, 255, 255, 0.45);
+
+    font-size: 0.7rem;
+    font-weight: 500;
+
+    letter-spacing: 0.22em;
+
+    z-index: 3;
 }
+
+.hero-photo-text::after {
+    content: "";
+
+    width: 34px;
+    height: 2px;
+
+    margin-top: 0.6rem;
+
+    background-color: var(--accent);
+}
+
+
 
 
 /* BADGE */
