@@ -36,3 +36,66 @@ export function initTypewriter(){
     }
     type()
 }
+
+/* FUNCIONALIDA MODAL */
+
+const projects = document.querySelectorAll('.education-project');
+
+const modal = document.getElementById('projectModal');
+const modalVideo = document.getElementById('projectModalVideo');
+const modalTitle = document.getElementById('projectModalTitle');
+const modalClose = document.getElementById('projectModalClose');
+
+projects.forEach((project) => {
+
+    project.addEventListener('click', () => {
+
+        const video = project.querySelector('video');
+        const title = project.querySelector('p');
+
+        if (!video) return;
+
+        modalVideo.src = video.src;
+        modalTitle.textContent = title.textContent;
+
+        modal.classList.add('active');
+
+        modalVideo.currentTime = 0;
+        modalVideo.play();
+    });
+
+});
+
+
+function closeProjectModal() {
+
+    modal.classList.remove('active');
+
+    modalVideo.pause();
+    modalVideo.currentTime = 0;
+
+    setTimeout(() => {
+        modalVideo.src = '';
+    }, 300);
+}
+
+
+modalClose.addEventListener('click', closeProjectModal);
+
+
+modal.addEventListener('click', (event) => {
+
+    if (event.target === modal) {
+        closeProjectModal();
+    }
+
+});
+
+
+document.addEventListener('keydown', (event) => {
+
+    if (event.key === 'Escape') {
+        closeProjectModal();
+    }
+
+});

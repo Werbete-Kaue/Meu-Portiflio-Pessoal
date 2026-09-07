@@ -84,8 +84,9 @@
 
                         <article href="#" class="education-project">
                             <div class="education-project-image">
-                                <img src="src/assets/images/MundoS-Gif.gif"
-                                    alt="Projeto desenvolvido durante a formação no SENAI">
+                                <video
+                                    src="src/assets/videos/National Geopraphic - Google Chrome 2026-09-06 12-43-19.mp4"
+                                    muted loop playsinline preload="metadata"></video>
 
                                 <span class="education-project-overlay">
                                     Ver projeto
@@ -97,8 +98,7 @@
 
                         <article href="#" class="education-project">
                             <div class="education-project-image">
-                                <img src="src/assets/images/neostream-gif.gif"
-                                    alt="Projeto desenvolvido durante a formação no SENAI">
+                                <video src="src/assets/videos/NeoStream.mp4" muted loop playsinline preload="metadata"></video>
 
                                 <span class="education-project-overlay">
                                     Ver projeto
@@ -110,8 +110,7 @@
 
                         <article class="education-project">
                             <div class="education-project-image">
-                                <img src="src/assets/images/focus-gif.gif"
-                                    alt="Demonstração do terceiro projeto desenvolvido no SENAI">
+                                <video src="src/assets/videos/Focus.mp4" muted loop playsinline preload="metadata"></video>
                             </div>
 
                             <p>Gerenciador de tarefas Focus</p>
@@ -149,6 +148,60 @@
                     web, lógica de programação, JavaScript e desenvolvimento de aplicações,
                     combinando conhecimentos técnicos com atividades e projetos práticos.
                 </p>
+
+                <div class="education-projects">
+
+                    <p class="education-projects-title">
+                        Projetos desenvolvidos
+                    </p>
+
+                    <div class="education-projects-grid">
+
+                        <article class="education-project">
+                            <div class="education-project-image">
+                                <video src="src/assets/videos/Numero-secreto.mp4" muted loop playsinline preload="metadata"></video>
+                            </div>
+                            <p>Jogo número secreto</p>
+                        </article>
+
+                        <article class="education-project">
+                            <div class="education-project-image">
+                                <video src="src/assets/videos/Fokus.mp4" muted loop playsinline preload="metadata"></video>
+                            </div>
+                            <p>Focus</p>
+                        </article>
+
+                        <article class="education-project">
+                            <div class="education-project-image">
+                                <video src="src/assets/videos/K2 Bank - Google Chrome 2026-09-06 15-36-07.mp4" muted loop playsinline preload="metadata"></video>
+                            </div>
+                            <p>Sistema Bancário K2 Bank</p>
+                        </article>
+
+                        <article class="education-project">
+                            <div class="education-project-image">
+                                <video src="src/assets/videos/Numero-secreto.mp4" muted loop playsinline preload="metadata"></video>
+                            </div>
+                            <p>Projeto 04</p>
+                        </article>
+
+                        <article class="education-project">
+                            <div class="education-project-image">
+                                <video src="src/assets/videos/Numero-secreto.mp4" muted loop playsinline preload="metadata"></video>
+                            </div>
+                            <p>Projeto 05</p>
+                        </article>
+
+                        <article class="education-project">
+                            <div class="education-project-image">
+                                <video src="src/assets/videos/Numero-secreto.mp4" muted loop playsinline preload="metadata"></video>
+                            </div>
+                            <p>Projeto 06</p>
+                        </article>
+
+                    </div>
+
+                </div>
             </article>
         </section>
         <section id="skills" class="skills container">
@@ -183,6 +236,20 @@
             </p>
         </div>
     </footer>
+
+    <div class="project-modal" id="projectModal">
+        <div class="project-modal-content">
+
+            <button class="project-modal-close" id="projectModalClose">
+                &times;
+            </button>
+
+            <video id="projectModalVideo" controls muted loop playsinline></video>
+
+            <p id="projectModalTitle"></p>
+
+        </div>
+    </div>
 
     <script type="module" src="src/js/modules/main.js"></script>
 </body>
