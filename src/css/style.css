@@ -190,8 +190,8 @@ nav {
      width: min(42vw, 68vh, 680px);
     aspect-ratio: 1;
 
-    left: 50%;
-    top: 51%;
+    left: 55%;
+    top: 44%;
 
     transform: translate(-50%, -50%);
 
