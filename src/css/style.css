@@ -310,17 +310,35 @@ nav {
     display: inline-flex;
     align-items: center;
 
-    padding: 0.45rem 0.9rem;
+    gap: 0.6rem;
 
-    border: 1px solid rgba(0, 255, 136, 0.25);
+    padding: 0.5rem 1rem;
+
+    border: 1px solid rgba(0, 255, 136, 0.6);
     border-radius: 50px;
 
-    background-color: rgba(0, 255, 136, 0.06);
+    background-color: rgba(0, 255, 136, 0.045);
 
     color: var(--accent);
 
     font-size: 0.78rem;
     font-weight: 600;
+}
+
+.badge::before {
+    content: "";
+
+    width: 7px;
+    height: 7px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background-color: var(--accent);
+
+    box-shadow:
+        0 0 10px rgba(0, 255, 136, 0.8);
 }
 
 
