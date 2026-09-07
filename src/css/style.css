@@ -131,8 +131,12 @@ nav {
 .hero {
     min-height: calc(100vh - 80px);
 
-    display: flex;
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+
     align-items: center;
+
+    gap: clamp(3rem, 6vw, 7rem);
 
     padding-top: 80px;
     padding-bottom: 80px;
@@ -140,6 +144,102 @@ nav {
 
 .hero-content {
     max-width: 850px;
+}
+
+.hero-photo-area {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 520px;
+}
+
+.hero-photo-glow {
+    position: absolute;
+
+    width: 380px;
+    height: 380px;
+
+    border-radius: 50%;
+
+    background: radial-gradient(
+        circle,
+        rgba(0, 255, 136, 0.18),
+        rgba(0, 255, 136, 0.05) 45%,
+        transparent 70%
+    );
+
+    filter: blur(8px);
+}
+
+.hero-photo-frame {
+    position: relative;
+
+    width: min(100%, 400px);
+    aspect-ratio: 4 / 5;
+
+    overflow: hidden;
+
+    border-radius: 28px;
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    background-color: #0d0d0d;
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.5);
+
+    z-index: 2;
+}
+
+.hero-photo-frame img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+    object-position: center;
+
+    transition: transform 0.5s ease;
+}
+
+.hero-photo-frame:hover img {
+    transform: scale(1.025);
+}
+
+.hero-photo-detail {
+    position: absolute;
+
+    z-index: 3;
+
+    padding: 0.6rem 1rem;
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+
+    background-color: rgba(10, 10, 10, 0.85);
+
+    backdrop-filter: blur(10px);
+
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.hero-photo-detail-top {
+    top: 80px;
+    left: 0;
+
+    color: var(--accent);
+}
+
+.hero-photo-detail-bottom {
+    right: 0;
+    bottom: 90px;
+
+    color: var(--text-dim);
 }
 
 
