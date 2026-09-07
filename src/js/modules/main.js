@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 export function initTypewriter(){
 
     const textElement = document.getElementById('typewriter');
-    const phrases = ['Kauê.']
+    const phrases = ['Werbete Kauê.']
     let phrasesIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
