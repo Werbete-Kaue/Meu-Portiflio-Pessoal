@@ -187,7 +187,7 @@ nav {
 .hero-photo-circle {
     position: absolute;
 
-    width: clamp(470px, 38vw, 620px);
+    width: min(38vw, 62vh, 610px);
     aspect-ratio: 1;
 
     left: 50%;
@@ -222,11 +222,11 @@ nav {
 
     position: absolute;
 
-    width: 720px;
-    height: 720px;
+    width: min(44vw, 70vh, 700px);
+    aspect-ratio: 1;
 
     left: 50%;
-    top: 57%;
+    top: 55%;
 
     transform: translate(-50%, -50%);
 
@@ -236,8 +236,8 @@ nav {
         radial-gradient(
             circle,
             rgba(0, 255, 136, 0.13) 0%,
-            rgba(0, 255, 136, 0.055) 35%,
-            transparent 68%
+            rgba(0, 255, 136, 0.05) 38%,
+            transparent 70%
         );
 
     filter: blur(40px);
