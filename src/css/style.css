@@ -134,13 +134,15 @@ nav {
     min-height: calc(100vh - 98px);
 
     display: grid;
-    grid-template-columns: minmax(0, 1.05fr) minmax(480px, 0.95fr);
+    grid-template-columns:
+        minmax(0, 0.95fr)
+        minmax(500px, 1.05fr);
 
     align-items: center;
 
-    gap: clamp(1rem, 3vw, 4rem);
+    gap: clamp(1rem, 2vw, 3rem);
 
-    padding-top: 35px;
+    padding-top: 45px;
     padding-bottom: 0;
 
     overflow: hidden;
