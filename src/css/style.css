@@ -167,15 +167,35 @@ nav {
 
 .hero-intro {
     margin-top: 2rem;
+}
+
+.hero-greeting {
+    display: block;
 
     color: var(--text-dim);
 
-    font-size: 1.1rem;
+    font-size: 1rem;
+    font-weight: 500;
+
+    margin-bottom: 0.2rem;
 }
 
-.hero-intro #typewriter {
+.hero-name {
     color: var(--text);
-    font-weight: 600;
+
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 700;
+
+    line-height: 1.1;
+    letter-spacing: -1px;
+}
+
+.hero-name #typewriter {
+    color: var(--text);
+}
+
+.hero-name .cursor {
+    color: var(--accent);
 }
 
 
