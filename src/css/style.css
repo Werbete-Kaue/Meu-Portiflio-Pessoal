@@ -562,11 +562,17 @@ nav {
 @media (max-width: 900px) {
 
     .hero {
+        height: auto;
+        min-height: auto;
+
         grid-template-columns: 1fr;
 
         padding-top: 60px;
+        padding-bottom: 0;
 
         gap: 2rem;
+
+        overflow: hidden;
     }
 
     .hero-content {
@@ -574,6 +580,7 @@ nav {
     }
 
     .hero-photo-area {
+        height: auto;
         min-height: 600px;
 
         margin-right: 0;
@@ -581,6 +588,7 @@ nav {
 
     .hero-photo {
         width: min(100%, 580px);
+        max-height: none;
 
         transform: translateY(20px);
     }
