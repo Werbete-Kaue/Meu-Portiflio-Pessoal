@@ -113,15 +113,48 @@ nav {
 }
 
 @media (max-width: 768px) {
-   nav {
-    flex-direction: column;
-    align-items: center;
-    gap: 1.2rem;
-   }
 
-   .nav-links {
-        font-size: 1.3rem;
-   }
+    header {
+        padding: 1rem 0;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+
+        align-items: center;
+        justify-content: space-between;
+
+        gap: 1rem;
+    }
+
+    .logo-box {
+        width: 44px;
+        height: 44px;
+    }
+
+    .logo {
+        font-size: 1.35rem;
+    }
+
+    .btn-contact {
+        padding: 0.55rem 1.1rem;
+        font-size: 0.82rem;
+    }
+
+    .nav-links {
+        order: 3;
+
+        width: 100%;
+
+        display: flex;
+        justify-content: center;
+
+        gap: clamp(1rem, 6vw, 2rem);
+
+        font-size: 0.88rem;
+    }
 }
 
 /* =========================
