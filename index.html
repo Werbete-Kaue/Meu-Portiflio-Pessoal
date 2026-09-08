@@ -553,18 +553,60 @@
     </footer>
 
     <div class="project-modal" id="projectModal">
-        <div class="project-modal-content">
 
-            <button class="project-modal-close" id="projectModalClose">
-                &times;
-            </button>
+    <div class="project-modal-content">
 
-            <video id="projectModalVideo" controls muted loop playsinline></video>
+        <button
+            class="project-modal-close"
+            id="projectModalClose"
+            aria-label="Fechar projeto"
+        >
+            &times;
+        </button>
 
-            <p id="projectModalTitle"></p>
-
+        <!-- Vídeo -->
+        <div class="project-modal-media">
+            <video
+                id="projectModalVideo"
+                controls
+                muted
+                loop
+                playsinline
+            ></video>
         </div>
-    </div>
+
+        <!-- Informações do projeto -->
+        <div class="project-modal-info">
+        
+            <span class="project-modal-label">
+                Projeto
+            </span>
+        
+            <h3 id="projectModalTitle">
+                Nome do projeto
+            </h3>
+        
+            <p class="project-modal-description" id="projectModalDescription">
+                Descrição do projeto.
+            </p>
+        
+            <div class="project-modal-stack">
+        
+                <span class="project-modal-stack-title">
+                    Tecnologias utilizadas
+                </span>
+        
+                <div class="project-modal-technologies" id="projectModalTechnologies">
+                    <!-- Tecnologias inseridas pelo JavaScript -->
+                </div>
+        
+            </div>
+        
+        </div>
+        
+        </div>
+        
+        </div>
 
     <script type="module" src="src/js/modules/main.js"></script>
 </body>
