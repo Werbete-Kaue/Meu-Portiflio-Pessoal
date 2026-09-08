@@ -113,48 +113,15 @@ nav {
 }
 
 @media (max-width: 768px) {
+   nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+   }
 
-    header {
-        padding: 1rem 0;
-    }
-
-    nav {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-
-        align-items: center;
-        justify-content: space-between;
-
-        gap: 1rem;
-    }
-
-    .logo-box {
-        width: 44px;
-        height: 44px;
-    }
-
-    .logo {
-        font-size: 1.35rem;
-    }
-
-    .btn-contact {
-        padding: 0.55rem 1.1rem;
-        font-size: 0.82rem;
-    }
-
-    .nav-links {
-        order: 3;
-
-        width: 100%;
-
-        display: flex;
-        justify-content: center;
-
-        gap: clamp(1rem, 6vw, 2rem);
-
-        font-size: 0.88rem;
-    }
+   .nav-links {
+        font-size: 1.3rem;
+   }
 }
 
 /* =========================
@@ -827,8 +794,9 @@ nav {
     color: var(--text);
     border-radius: 14px;
 
-    transition: transform 0.35s ease;
-    filter: 0.35s ease;
+    transition:
+        transform 0.35s ease,
+        filter 0.35s ease;
 
     cursor: pointer;
 }
@@ -1196,7 +1164,6 @@ nav {
 
 .skill-card {
     position: relative;
-
     min-height: 125px;
 
     display: flex;
@@ -1211,6 +1178,7 @@ nav {
     background-color: rgba(255, 255, 255, 0.02);
 
     border: 1px solid rgba(255, 255, 255, 0.07);
+
     border-radius: 16px;
 
     transition:
@@ -1277,7 +1245,10 @@ nav {
 
     color: var(--accent);
 
-    transition: transform 0.3s ease,background-color 0.3s ease,border-color 0.3s ease;          
+    transition:
+        transform 0.3s ease,
+        background-color 0.3s ease,
+        border-color 0.3s ease;
 }
 
 .skill-card:hover .skill-icon {
@@ -1631,14 +1602,14 @@ nav {
 
 }
 
-/* =========================
-   RESPONSIVIDADE GLOBAL
-   Refinamentos finais
-========================= */
+/* =========================================================
+   RESPONSIVIDADE GLOBAL — REFINAMENTO FINAL
+   Mantém o desktop atual e corrige tablet/celular.
+========================================================= */
 
 html,
 body {
-    max-width: 100%;
+    width: 100%;
     overflow-x: hidden;
 }
 
@@ -1647,25 +1618,12 @@ video {
     max-width: 100%;
 }
 
-.hero-content,
-.hero-photo-area,
-.education-title,
-.skills-group-header > *,
-.skill-info,
-.footer-brand-text {
-    min-width: 0;
-}
-
-.footer-column a,
-.footer-brand-text p,
-.skills-group-header > p,
-.skill-info p,
-.education-description {
+.footer-column a {
     overflow-wrap: anywhere;
 }
 
-/* Notebooks e tablets em paisagem */
-@media (max-width: 1200px) {
+/* Notebook / tablet horizontal */
+@media (max-width: 1100px) {
     .container {
         padding-left: clamp(24px, 4vw, 48px);
         padding-right: clamp(24px, 4vw, 48px);
@@ -1673,123 +1631,75 @@ video {
 
     .hero {
         grid-template-columns: minmax(0, 1fr) minmax(380px, 0.9fr);
-        gap: 1.5rem;
     }
 
     .hero-title {
-        font-size: clamp(3.3rem, 5.8vw, 5.4rem);
+        font-size: clamp(3.2rem, 6vw, 5.4rem);
     }
 
     .hero-photo {
-        max-width: 125%;
+        width: min(135%, 620px);
     }
 
-    .education-description {
-        max-width: 100%;
+    .hero-photo-circle {
+        width: min(45vw, 520px);
     }
 }
 
-/* Tablets */
+/* Skills em tablet */
+@media (max-width: 1000px) {
+    .skills-grid-primary,
+    .skills-grid-secondary {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Hero passa para uma coluna */
 @media (max-width: 900px) {
-    header {
-        padding: 0.95rem 0;
-    }
-
-    nav {
-        display: grid;
-        grid-template-columns: auto auto;
-        align-items: center;
-        gap: 0.9rem 1rem;
-    }
-
-    .logo-box {
-        width: 46px;
-        height: 46px;
-    }
-
-    .btn-contact {
-        justify-self: end;
-        padding: 0.55rem 1.2rem;
-    }
-
-    .nav-links {
-        grid-column: 1 / -1;
-        width: 100%;
-        justify-content: center;
-        gap: clamp(1rem, 4vw, 2rem);
-        font-size: 0.92rem;
-    }
-
     .hero {
         height: auto;
         min-height: auto;
         grid-template-columns: 1fr;
-        gap: 1rem;
-        padding-top: 50px;
+        gap: 2rem;
+        padding-top: 56px;
+        padding-bottom: 0;
+        overflow: hidden;
     }
 
     .hero-content {
-        max-width: 760px;
+        max-width: 720px;
     }
 
     .hero-photo-area {
-        min-height: clamp(450px, 68vw, 570px);
+        height: auto;
+        min-height: 560px;
         margin-right: 0;
     }
 
     .hero-photo {
-        width: min(86vw, 540px);
-        max-width: 100%;
+        width: min(100%, 560px);
         max-height: none;
         transform: translateY(18px);
     }
 
     .hero-photo-circle {
-        width: min(70vw, 470px);
+        width: min(68vw, 500px);
         left: 50%;
         top: 48%;
     }
 
     .hero-photo-area::before {
-        width: min(76vw, 520px);
         left: 50%;
-        top: 51%;
+        top: 52%;
     }
 
     .hero-photo-text {
-        top: 35px;
-        right: 5%;
+        right: 6%;
     }
+}
 
-    .education {
-        padding-top: 60px;
-        padding-bottom: 60px;
-    }
-
-    .education-card {
-        padding: 1.6rem;
-    }
-
-    .education-projects-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .skills {
-        padding-top: 80px;
-        padding-bottom: 90px;
-    }
-
-    .skills-group-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.9rem;
-    }
-
-    .skills-group-header > p {
-        max-width: 680px;
-        text-align: left;
-    }
-
+/* Footer em tablet */
+@media (max-width: 800px) {
     .footer-top {
         flex-direction: column;
         gap: 3rem;
@@ -1798,29 +1708,28 @@ video {
     .footer-links {
         width: 100%;
         justify-content: flex-start;
+        gap: clamp(3rem, 10vw, 5rem);
     }
 }
 
-/* Celulares grandes e pequenos */
-@media (max-width: 600px) {
-    .container {
-        padding-left: 18px;
-        padding-right: 18px;
-    }
-
+/* Header + formação em tablet/celular */
+@media (max-width: 768px) {
     header {
-        padding: 0.8rem 0;
+        padding: 1rem 0;
     }
 
     nav {
-        flex-direction: initial;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
         align-items: center;
-        gap: 0.75rem;
+        justify-content: space-between;
+        gap: 1rem;
     }
 
     .logo-box {
-        width: 42px;
-        height: 42px;
+        width: 44px;
+        height: 44px;
     }
 
     .logo {
@@ -1828,31 +1737,103 @@ video {
     }
 
     .btn-contact {
-        padding: 0.5rem 0.95rem;
-        font-size: 0.8rem;
-    }
-
-    .nav-links {
-        gap: 1.25rem;
+        padding: 0.55rem 1.1rem;
         font-size: 0.82rem;
     }
 
+    .nav-links {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        gap: clamp(1rem, 5vw, 2rem);
+        font-size: 0.9rem;
+    }
+
+    .education {
+        padding-top: 55px;
+        padding-bottom: 55px;
+    }
+
+    .education-card {
+        padding: 1.5rem;
+    }
+
+    .education-projects-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .project-modal {
+        padding: 1.25rem;
+    }
+
+    .project-modal-content {
+        width: min(100%, 900px);
+        padding: 1rem;
+        border-radius: 16px;
+    }
+
+    .project-modal-close {
+        top: 10px;
+        right: 10px;
+    }
+}
+
+/* Skills passa a cabeçalho vertical */
+@media (max-width: 700px) {
+    .skills {
+        padding-top: 70px;
+        padding-bottom: 80px;
+    }
+
+    .skills-heading {
+        margin-bottom: 2.2rem;
+    }
+
+    .skills-group {
+        padding: 1.5rem;
+    }
+
+    .skills-group-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+    }
+
+    .skills-group-header > p {
+        max-width: 100%;
+        text-align: left;
+    }
+}
+
+/* Celular */
+@media (max-width: 600px) {
+    .container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
     .hero {
-        padding-top: 38px;
-        gap: 0.5rem;
+        gap: 1.5rem;
+        padding-top: 40px;
+    }
+
+    .hero-content {
+        max-width: 100%;
     }
 
     .badge {
+        max-width: 100%;
         padding: 0.45rem 0.8rem;
         font-size: 0.7rem;
+        white-space: normal;
     }
 
     .hero-intro {
-        margin-top: 1.4rem;
+        margin-top: 1.5rem;
     }
 
     .hero-greeting {
-        font-size: 0.92rem;
+        font-size: 0.9rem;
     }
 
     .hero-name {
@@ -1860,11 +1841,10 @@ video {
     }
 
     .hero-title {
-        margin-top: 0.75rem;
-        margin-bottom: 1.2rem;
-        font-size: clamp(2.65rem, 13vw, 4.1rem);
+        margin-top: 0.7rem;
+        font-size: clamp(2.65rem, 13vw, 4rem);
         line-height: 0.92;
-        letter-spacing: -0.045em;
+        overflow-wrap: anywhere;
     }
 
     .hero-description {
@@ -1873,7 +1853,9 @@ video {
     }
 
     .hero-actions {
-        margin-top: 1.5rem;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
     }
 
     .hero-btn {
@@ -1886,37 +1868,31 @@ video {
     }
 
     .hero-photo-area {
-        min-height: 410px;
+        width: 100%;
+        min-height: 430px;
+        margin-right: 0;
     }
 
     .hero-photo {
-        width: min(112%, 430px);
-        transform: translateY(16px);
+        width: min(110%, 430px);
+        max-width: none;
+        transform: translateY(15px);
     }
 
     .hero-photo-circle {
         width: min(88vw, 390px);
         left: 50%;
-        top: 46%;
+        top: 48%;
     }
 
     .hero-photo-area::before {
-        width: min(98vw, 440px);
-        top: 50%;
+        width: min(95vw, 430px);
+        left: 50%;
+        top: 52%;
     }
 
     .hero-photo-text {
         display: none;
-    }
-
-    .education {
-        padding: 50px 18px;
-    }
-
-    .education .section-title {
-        margin-bottom: 24px;
-        font-size: clamp(1.85rem, 9vw, 2.5rem);
-        line-height: 1.1;
     }
 
     .education-card {
@@ -1924,131 +1900,38 @@ video {
         border-radius: 16px;
     }
 
-    .education-header {
-        gap: 1rem;
-    }
-
-    .education-logo {
-        width: 60px;
-        height: 60px;
-        border-radius: 12px;
-    }
-
-    .education-title h4 {
-        font-size: 1.12rem;
-        line-height: 1.35;
-    }
-
-    .education-institution,
-    .education-period,
     .education-description {
-        font-size: 0.86rem;
-    }
-
-    .education-description {
-        margin-top: 1.35rem;
-        line-height: 1.7;
-    }
-
-    .education-projects {
-        margin-top: 1.5rem;
-        padding-top: 1.4rem;
+        max-width: 100%;
+        font-size: 0.9rem;
     }
 
     .education-projects-grid {
         grid-template-columns: 1fr;
-        gap: 1.2rem;
     }
 
     .project-modal {
-        padding: 0.75rem;
-    }
-
-    .project-modal-content {
-        padding: 0.75rem;
-        border-radius: 14px;
+        padding: 0.9rem;
     }
 
     .project-modal-content video {
-        max-height: 65svh;
-        border-radius: 10px;
+        max-height: 70vh;
     }
+}
 
-    .project-modal-close {
-        top: 8px;
-        right: 8px;
-        width: 38px;
-        height: 38px;
-        background-color: rgba(17, 17, 17, 0.92);
-    }
-
-    .skills {
-        padding-top: 60px;
-        padding-bottom: 70px;
-    }
-
-    .skills-heading {
-        margin-bottom: 2rem;
-    }
-
-    .skills .section-title {
-        font-size: clamp(2rem, 10vw, 2.9rem);
-    }
-
-    .skills-intro {
-        font-size: 0.92rem;
-        line-height: 1.7;
-    }
-
-    .skills-group {
-        padding: 1.15rem;
-        border-radius: 17px;
-    }
-
-    .skills-group + .skills-group {
-        margin-top: 1.4rem;
-    }
-
-    .skills-group-header {
-        margin-bottom: 1.25rem;
-        padding-bottom: 1.2rem;
-    }
-
-    .skills-group-header h4 {
-        font-size: 1.25rem;
-    }
-
-    .skills-group-header > p {
-        font-size: 0.82rem;
-    }
-
+/* Celular pequeno */
+@media (max-width: 520px) {
     .skills-grid-primary,
     .skills-grid-secondary {
         grid-template-columns: 1fr;
     }
 
+    .skills-group {
+        padding: 1.15rem;
+        border-radius: 18px;
+    }
+
     .skill-card {
         min-height: auto;
-        padding: 1.1rem;
-    }
-
-    .skill-icon {
-        width: 46px;
-        height: 46px;
-        border-radius: 11px;
-    }
-
-    .skill-icon i {
-        font-size: 1.7rem;
-    }
-
-    .skill-info p {
-        font-size: 0.84rem;
-    }
-
-    .skill-title-row {
-        align-items: flex-start;
-        flex-wrap: wrap;
     }
 
     .footer-container {
@@ -2058,92 +1941,141 @@ video {
 
     .footer-brand {
         flex-direction: column;
+        max-width: 100%;
     }
 
     .footer-links {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 2rem;
+        width: 100%;
+        flex-direction: column;
+        gap: 2.25rem;
+    }
+
+    .footer-column {
+        width: 100%;
     }
 
     .footer-bottom {
+        width: 100%;
         flex-direction: column;
         align-items: flex-start;
-        gap: 0.7rem;
+        gap: 0.6rem;
     }
 }
 
-/* Celulares muito estreitos */
-@media (max-width: 380px) {
-    .container {
-        padding-left: 14px;
-        padding-right: 14px;
-    }
-
-    .btn-contact {
-        padding: 0.45rem 0.75rem;
-        font-size: 0.74rem;
-    }
-
-    .nav-links {
-        gap: 0.8rem;
-        font-size: 0.76rem;
-    }
-
-    .hero-title {
-        font-size: clamp(2.35rem, 13vw, 3.2rem);
-    }
-
-    .hero-photo-area {
-        min-height: 360px;
-    }
-
-    .hero-photo {
-        width: min(118%, 385px);
-    }
-
-    .education {
-        padding-left: 14px;
-        padding-right: 14px;
-    }
-
+/* Telas estreitas */
+@media (max-width: 420px) {
     .education-header {
         flex-direction: column;
+        align-items: flex-start;
     }
 
     .education-logo {
-        width: 56px;
-        height: 56px;
+        width: 58px;
+        height: 58px;
+    }
+
+    .education-title {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .education-title h4,
+    .education-institution,
+    .education-period {
+        overflow-wrap: anywhere;
+    }
+
+    .skills {
+        padding-top: 60px;
+        padding-bottom: 70px;
     }
 
     .skills-group {
         padding: 1rem;
+        border-radius: 16px;
+    }
+
+    .skills-group-header {
+        margin-bottom: 1.4rem;
+        padding-bottom: 1.2rem;
+    }
+
+    .skills-group-header h4 {
+        font-size: 1.3rem;
     }
 
     .skill-card {
+        padding: 1.1rem;
         gap: 0.8rem;
-        padding: 1rem;
+    }
+
+    .skill-icon {
+        width: 46px;
+        height: 46px;
+    }
+
+    .skill-icon i {
+        font-size: 1.7rem;
+    }
+
+    .skill-title-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.35rem;
     }
 
     .skill-tag {
-        font-size: 0.58rem;
+        align-self: flex-start;
     }
 
-    .footer-links {
-        grid-template-columns: 1fr;
-        gap: 1.8rem;
-    }
-}
-
-/* Em telas touch, evita movimentos de hover que podem parecer travados */
-@media (hover: none) {
-    .education-card:hover,
-    .education-project:hover,
-    .skill-card:hover,
-    .hero-btn:hover,
-    .social-links a:hover,
-    .footer-column a:hover {
-        transform: none;
+    .footer-top {
+        gap: 2.5rem;
+        padding-bottom: 36px;
     }
 }
 
+/* Aparelhos muito estreitos */
+@media (max-width: 360px) {
+    .container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .nav-links {
+        gap: 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    .btn-contact {
+        padding-left: 0.85rem;
+        padding-right: 0.85rem;
+    }
+
+    .hero-title {
+        font-size: clamp(2.35rem, 12.8vw, 3rem);
+    }
+
+    .hero-name {
+        font-size: 2rem;
+    }
+
+    .hero-photo-area {
+        min-height: 390px;
+    }
+
+    .skills-group {
+        padding: 0.85rem;
+    }
+
+    .skill-card {
+        padding: 1rem;
+    }
+
+    .project-modal {
+        padding: 0.6rem;
+    }
+
+    .project-modal-content {
+        padding: 0.75rem;
+    }
+}
