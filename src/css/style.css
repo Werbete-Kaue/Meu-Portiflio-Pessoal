@@ -1163,6 +1163,7 @@ nav {
 
 .skill-card {
     position: relative;
+
     min-height: 125px;
 
     display: flex;
@@ -1177,7 +1178,6 @@ nav {
     background-color: rgba(255, 255, 255, 0.02);
 
     border: 1px solid rgba(255, 255, 255, 0.07);
-
     border-radius: 16px;
 
     transition:
