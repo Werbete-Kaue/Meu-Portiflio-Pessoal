@@ -37,14 +37,17 @@ export function initTypewriter(){
     type()
 }
 
-/* FUNCIONALIDA MODAL */
+/* FUNCIONALIDADE MODAL */
 
 const projects = document.querySelectorAll('.education-project');
 
 const modal = document.getElementById('projectModal');
 const modalVideo = document.getElementById('projectModalVideo');
 const modalTitle = document.getElementById('projectModalTitle');
+const modalDescription = document.getElementById('projectModalDescription');
+const modalTechnologies = document.getElementById('projectModalTechnologies');
 const modalClose = document.getElementById('projectModalClose');
+
 
 projects.forEach((project) => {
 
@@ -53,15 +56,58 @@ projects.forEach((project) => {
         const video = project.querySelector('video');
         const title = project.querySelector('p');
 
-        if (!video) return;
+        const description = project.dataset.description;
+        const technologies = project.dataset.technologies;
 
+        if (!video || !title) return;
+
+
+        /* VÍDEO */
         modalVideo.src = video.src;
+
+
+        /* TÍTULO */
         modalTitle.textContent = title.textContent;
 
+
+        /* DESCRIÇÃO */
+        modalDescription.textContent =
+            description || 'Descrição do projeto em breve.';
+
+
+        /* TECNOLOGIAS */
+        modalTechnologies.innerHTML = '';
+
+        if (technologies) {
+
+            const technologiesList = technologies.split(',');
+
+            technologiesList.forEach((technology) => {
+
+                const technologyTag = document.createElement('span');
+
+                technologyTag.textContent = technology.trim();
+
+                modalTechnologies.appendChild(technologyTag);
+
+            });
+
+        }
+
+
+        /* ABRE O MODAL */
         modal.classList.add('active');
 
+        document.body.style.overflow = 'hidden';
+
+
+        /* REINICIA O VÍDEO */
         modalVideo.currentTime = 0;
-        modalVideo.play();
+
+        modalVideo.play().catch(() => {
+            // Alguns navegadores podem bloquear reprodução automática.
+        });
+
     });
 
 });
@@ -71,12 +117,17 @@ function closeProjectModal() {
 
     modal.classList.remove('active');
 
+    document.body.style.overflow = '';
+
     modalVideo.pause();
     modalVideo.currentTime = 0;
 
     setTimeout(() => {
+
         modalVideo.src = '';
+
     }, 300);
+
 }
 
 
@@ -86,7 +137,9 @@ modalClose.addEventListener('click', closeProjectModal);
 modal.addEventListener('click', (event) => {
 
     if (event.target === modal) {
+
         closeProjectModal();
+
     }
 
 });
@@ -94,8 +147,13 @@ modal.addEventListener('click', (event) => {
 
 document.addEventListener('keydown', (event) => {
 
-    if (event.key === 'Escape') {
+    if (
+        event.key === 'Escape' &&
+        modal.classList.contains('active')
+    ) {
+
         closeProjectModal();
+
     }
 
 });

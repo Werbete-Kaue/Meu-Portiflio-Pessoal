@@ -871,6 +871,10 @@ nav {
     transform: translateX(4px);
 }
 
+/* =========================
+   MODAL DE PROJETO
+========================= */
+
 .project-modal {
     position: fixed;
     inset: 0;
@@ -881,8 +885,8 @@ nav {
 
     padding: 2rem;
 
-    background-color: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(8px);
+    background-color: rgba(0, 0, 0, 0.88);
+    backdrop-filter: blur(10px);
 
     opacity: 0;
     visibility: hidden;
@@ -899,90 +903,377 @@ nav {
     visibility: visible;
 }
 
+
+/* =========================
+   CONTEÚDO
+========================= */
+
 .project-modal-content {
     position: relative;
 
-    width: min(100%, 1100px);
+    width: min(100%, 1050px);
+    max-height: calc(100svh - 4rem);
+
+    overflow-y: auto;
 
     background-color: #0d0d0d;
 
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
+    border-radius: 22px;
 
-    padding: 1.5rem;
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.65),
+        0 0 40px rgba(0, 255, 136, 0.025);
 
-    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+    transform: translateY(20px) scale(0.98);
 
-    transform: scale(0.95);
-
-    transition: transform 0.3s ease;
+    transition:
+        transform 0.3s ease;
 }
 
 .project-modal.active .project-modal-content {
-    transform: scale(1);
+    transform: translateY(0) scale(1);
 }
 
-.project-modal-content video {
-    width: 100%;
-    max-height: 75vh;
 
-    display: block;
+/* =========================
+   SCROLL
+========================= */
 
-    margin: 0 auto;
-
-    object-fit: contain;
-    object-position: center;
-
-    border-radius: 14px;
-
-    background-color: #050505;
+.project-modal-content::-webkit-scrollbar {
+    width: 7px;
 }
 
-.project-modal-content p {
-    margin-top: 1rem;
-
-    color: var(--text);
-
-    font-size: 1rem;
-    font-weight: 600;
-
-    text-align: center;
+.project-modal-content::-webkit-scrollbar-track {
+    background: transparent;
 }
+
+.project-modal-content::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+}
+
+.project-modal-content::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 255, 136, 0.4);
+}
+
+
+/* =========================
+   BOTÃO FECHAR
+========================= */
 
 .project-modal-close {
     position: absolute;
 
-    top: -15px;
-    right: -15px;
+    top: 16px;
+    right: 16px;
 
     width: 42px;
     height: 42px;
 
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 50%;
 
-    background-color: #111;
+    background-color: rgba(5, 5, 5, 0.85);
 
-    color: #fff;
+    color: var(--text);
 
-    font-size: 1.8rem;
+    font-size: 1.7rem;
     line-height: 1;
 
     cursor: pointer;
 
-    z-index: 2;
+    backdrop-filter: blur(8px);
+
+    z-index: 5;
 
     transition:
-        background-color 0.3s ease,
         color 0.3s ease,
+        background-color 0.3s ease,
+        border-color 0.3s ease,
         transform 0.3s ease;
 }
 
 .project-modal-close:hover {
-    background-color: var(--accent);
     color: #050505;
 
+    background-color: var(--accent);
+
+    border-color: var(--accent);
+
     transform: rotate(90deg);
+}
+
+
+/* =========================
+   ÁREA DO VÍDEO
+========================= */
+
+.project-modal-media {
+    width: 100%;
+
+    padding: 1.3rem 1.3rem 0;
+}
+
+.project-modal-media video {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+
+    display: block;
+
+    object-fit: contain;
+
+    background-color: #050505;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+}
+
+
+/* =========================
+   INFORMAÇÕES DO PROJETO
+========================= */
+
+.project-modal-info {
+    padding: 2rem 2.2rem 2.3rem;
+}
+
+.project-modal-label {
+    display: inline-block;
+
+    margin-bottom: 0.65rem;
+
+    color: var(--accent);
+
+    font-size: 0.72rem;
+    font-weight: 700;
+
+    letter-spacing: 0.16em;
+
+    text-transform: uppercase;
+}
+
+.project-modal-info h3 {
+    margin-bottom: 0.9rem;
+
+    color: var(--text);
+
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    font-weight: 750;
+
+    line-height: 1.15;
+}
+
+.project-modal-description {
+    max-width: 780px;
+
+    color: var(--text-dim);
+
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+
+/* =========================
+   TECNOLOGIAS
+========================= */
+
+.project-modal-stack {
+    margin-top: 1.8rem;
+}
+
+.project-modal-stack-title {
+    display: block;
+
+    margin-bottom: 0.8rem;
+
+    color: rgba(255, 255, 255, 0.65);
+
+    font-size: 0.72rem;
+    font-weight: 700;
+
+    letter-spacing: 0.12em;
+
+    text-transform: uppercase;
+}
+
+.project-modal-technologies {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 0.65rem;
+}
+
+.project-modal-technologies span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0.4rem 0.75rem;
+
+    background-color: rgba(0, 255, 136, 0.045);
+
+    border: 1px solid rgba(0, 255, 136, 0.22);
+    border-radius: 50px;
+
+    color: var(--accent);
+
+    font-size: 0.72rem;
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    transition:
+        background-color 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.project-modal-technologies span:hover {
+    background-color: rgba(0, 255, 136, 0.08);
+
+    border-color: rgba(0, 255, 136, 0.4);
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 768px) {
+
+    .project-modal {
+        padding: 1.2rem;
+    }
+
+    .project-modal-content {
+        max-height: calc(100svh - 2.4rem);
+
+        border-radius: 18px;
+    }
+
+    .project-modal-media {
+        padding: 1rem 1rem 0;
+    }
+
+    .project-modal-info {
+        padding: 1.6rem 1.5rem 1.8rem;
+    }
+
+    .project-modal-close {
+        top: 12px;
+        right: 12px;
+
+        width: 38px;
+        height: 38px;
+
+        font-size: 1.5rem;
+    }
+}
+
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 520px) {
+
+    .project-modal {
+        padding: 0.75rem;
+    }
+
+    .project-modal-content {
+        width: 100%;
+        max-height: calc(100svh - 1.5rem);
+
+        border-radius: 16px;
+    }
+
+    .project-modal-media {
+        padding: 0.7rem 0.7rem 0;
+    }
+
+    .project-modal-media video {
+        border-radius: 12px;
+    }
+
+    .project-modal-info {
+        padding: 1.4rem 1.1rem 1.6rem;
+    }
+
+    .project-modal-label {
+        font-size: 0.65rem;
+    }
+
+    .project-modal-info h3 {
+        font-size: 1.55rem;
+    }
+
+    .project-modal-description {
+        font-size: 0.9rem;
+        line-height: 1.7;
+    }
+
+    .project-modal-stack {
+        margin-top: 1.5rem;
+    }
+
+    .project-modal-technologies {
+        gap: 0.5rem;
+    }
+
+    .project-modal-technologies span {
+        padding: 0.35rem 0.65rem;
+
+        font-size: 0.68rem;
+    }
+
+    .project-modal-close {
+        top: 10px;
+        right: 10px;
+
+        width: 36px;
+        height: 36px;
+
+        font-size: 1.4rem;
+    }
+}
+
+
+/* =========================
+   TELAS MUITO PEQUENAS
+========================= */
+
+@media (max-width: 360px) {
+
+    .project-modal {
+        padding: 0.5rem;
+    }
+
+    .project-modal-content {
+        max-height: calc(100svh - 1rem);
+    }
+
+    .project-modal-info {
+        padding:
+            1.2rem
+            0.9rem
+            1.4rem;
+    }
+
+    .project-modal-info h3 {
+        font-size: 1.4rem;
+    }
+
+    .project-modal-description {
+        font-size: 0.86rem;
+    }
 }
 
 

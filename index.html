@@ -143,7 +143,7 @@
 
                     <div class="education-projects-grid">
 
-                        <article href="#" class="education-project">
+                        <article href="#" class="education-project" data-description="O Mundo Selvagem é um site interativo e responsivo desenvolvido para apresentar diferentes animais de forma visual e dinâmica. A página conta com navegação adaptada para dispositivos móveis, seção de animais com troca de informações por abas, área de curiosidades em formato accordion, slider de imagens, menu dropdown, modal de login e tooltips na seção de contato. O projeto foi estruturado com foco em organização, interatividade e experiência do usuário." data-technologies="HTML5, CSS3, JavaScript E6 +">
                             <div class="education-project-image">
                                 <video
                                     src="src/assets/videos/National Geopraphic - Google Chrome 2026-09-06 12-43-19.mp4"
@@ -157,7 +157,7 @@
                             <p>Mundo Selvagem</p>
                         </article>
 
-                        <article href="#" class="education-project">
+                        <article href="#" class="education-project" data-description="O NeoStream é uma landing page de streaming com visual moderno e inspirador em serviços de entretenimento digitais. O projeto foi desenvolvido para oferecer uma experiência visual imersiva, com navegação intuitiva, carrosséis, modais e organização de conteúdo por categorias, reforçando uma identidade premium e prática para explorar filmes e séries." data-technologies="HTML5, CSS3, JavaScript E6+">
                             <div class="education-project-image">
                                 <video src="src/assets/videos/NeoStream.mp4" muted loop playsinline
                                     preload="metadata"></video>
@@ -170,7 +170,7 @@
                             <p>NeoStream</p>
                         </article>
 
-                        <article class="education-project">
+                        <article class="education-project" data-description="Aplicação full stack de gestão de tarefas, com interface moderna em React e backend em Django, focada em organização, produtividade e controle de acesso do usuário. O projeto integra autenticação, comunicação entre frontend e API, e uma estrutura eficiente para listar, criar e gerenciar tarefas de forma prática e escalável." data-technologies="React, Vite, Tailwind CSS, Django, Django REST Framework, Python, SQLite, JWT">
                             <div class="education-project-image">
                                 <video src="src/assets/videos/Focus.mp4" muted loop playsinline
                                     preload="metadata"></video>
@@ -220,7 +220,7 @@
 
                     <div class="education-projects-grid">
 
-                        <article class="education-project">
+                        <article class="education-project" data-description="Este projeto é um jogo de adivinhação em que o usuário tenta descobrir um número secreto com dicas dinâmicas sobre se o palpite está acima ou abaixo do valor correto. A interface é simples e intuitiva, com foco em uma experiência direta e interativa, demonstrando como HTML, CSS e JavaScript podem ser usados para criar uma aplicação funcional e agradável." data-technologies="HTML5, CSS3, JavaScript E6+">
                             <div class="education-project-image">
                                 <video src="src/assets/videos/Numero-secreto.mp4" muted loop playsinline
                                     preload="metadata"></video>
@@ -228,20 +228,20 @@
                             <p>Jogo número secreto</p>
                         </article>
 
-                        <article class="education-project">
+                        <article class="education-project" data-description="Este projeto é um timer de foco inspirado no método Pomodoro, pensado para ajudar os usuários a controlar melhor seu tempo, aumentar a produtividade e manter pausas mais equilibradas durante o trabalho. Com uma interface simples e visualmente agradável, ele permite alternar entre modo de foco, descanso curto e descanso longo, além de incluir música ambiente para melhorar a experiência de uso." data-technologies="HTML5, CSS3, JavaScript E6+">
                             <div class="education-project-image">
                                 <video src="src/assets/videos/Fokus.mp4" muted loop playsinline
                                     preload="metadata"></video>
                             </div>
-                            <p>Focus</p>
+                            <p>Fokus</p>
                         </article>
 
-                        <article class="education-project">
+                        <article class="education-project" data-description="Landing page moderna e institucional do K2 Bank, desenvolvida para comunicar confiança, inovação e praticidade em uma experiência bancária digital. Com visual em dark mode, elementos premium e estrutura responsiva, a página destaca os principais benefícios da marca, como segurança, clareza e eficiência no atendimento financeiro." data-technologies="HTML5, CSS3">
                             <div class="education-project-image">
                                 <video src="src/assets/videos/K2 Bank - Google Chrome 2026-09-06 15-36-07.mp4" muted
                                     loop playsinline preload="metadata"></video>
                             </div>
-                            <p>Sistema Bancário K2 Bank</p>
+                            <p>Página sistema bancário K2 Bank</p>
                         </article>
 
                         <article class="education-project">
@@ -553,18 +553,60 @@
     </footer>
 
     <div class="project-modal" id="projectModal">
-        <div class="project-modal-content">
 
-            <button class="project-modal-close" id="projectModalClose">
-                &times;
-            </button>
+    <div class="project-modal-content">
 
-            <video id="projectModalVideo" controls muted loop playsinline></video>
+        <button
+            class="project-modal-close"
+            id="projectModalClose"
+            aria-label="Fechar projeto"
+        >
+            &times;
+        </button>
 
-            <p id="projectModalTitle"></p>
-
+        <!-- Vídeo -->
+        <div class="project-modal-media">
+            <video
+                id="projectModalVideo"
+                controls
+                muted
+                loop
+                playsinline
+            ></video>
         </div>
-    </div>
+
+        <!-- Informações do projeto -->
+        <div class="project-modal-info">
+        
+            <span class="project-modal-label">
+                Projeto
+            </span>
+        
+            <h3 id="projectModalTitle">
+                Nome do projeto
+            </h3>
+        
+            <p class="project-modal-description" id="projectModalDescription">
+                Descrição do projeto.
+            </p>
+        
+            <div class="project-modal-stack">
+        
+                <span class="project-modal-stack-title">
+                    Tecnologias utilizadas
+                </span>
+        
+                <div class="project-modal-technologies" id="projectModalTechnologies">
+                    <!-- Tecnologias inseridas pelo JavaScript -->
+                </div>
+        
+            </div>
+        
+        </div>
+        
+        </div>
+        
+        </div>
 
     <script type="module" src="src/js/modules/main.js"></script>
 </body>
