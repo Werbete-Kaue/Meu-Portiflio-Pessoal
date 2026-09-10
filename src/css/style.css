@@ -256,6 +256,32 @@ nav {
     z-index: 0;
 }
 
+.hero-photo-area::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 140px;
+
+    pointer-events: none;
+
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(5, 5, 5, 0.08) 20%,
+        rgba(5, 5, 5, 0.25) 45%,
+        rgba(5, 5, 5, 0.55) 70%,
+        rgba(5, 5, 5, 0.85) 88%,
+        var(--bg) 100%
+    );
+
+    z-index: 3;
+}
+
 
 /* =========================
    FOTO
