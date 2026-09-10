@@ -177,6 +177,7 @@ nav {
     justify-content: center;
 
     margin-right: -4vw;
+    overflow: hidden;
 }
 
 
@@ -217,34 +218,35 @@ nav {
 
 /* BRILHO ATRÁS */
 
-.hero-photo-area::before {
+.hero-photo-area::after {
     content: "";
 
     position: absolute;
-
-    width: min(44vw, 70vh, 700px);
-    aspect-ratio: 1;
-
-    left: 50%;
-    top: 55%;
-
-    transform: translate(-50%, -50%);
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(0, 255, 136, 0.13) 0%,
-            rgba(0, 255, 136, 0.05) 38%,
-            transparent 70%
-        );
-
-    filter: blur(40px);
+    inset: 0;
 
     pointer-events: none;
 
-    z-index: 0;
+    background:
+        linear-gradient(
+            to right,
+            var(--bg) 0%,
+            rgba(5, 5, 5, 0.85) 3%,
+            rgba(5, 5, 5, 0.35) 8%,
+            transparent 15%,
+            transparent 85%,
+            rgba(5, 5, 5, 0.35) 92%,
+            rgba(5, 5, 5, 0.85) 97%,
+            var(--bg) 100%
+        ),
+        linear-gradient(
+            to bottom,
+            transparent 72%,
+            rgba(5, 5, 5, 0.15) 80%,
+            rgba(5, 5, 5, 0.55) 90%,
+            var(--bg) 100%
+        );
+
+    z-index: 3;
 }
 
 
@@ -271,7 +273,7 @@ nav {
 
     filter:
         drop-shadow(0 35px 55px rgba(0, 0, 0, 0.55))
-        drop-shadow(8px 0 10px rgba(0, 255, 136, 0.12));
+        drop-shadow(8px 0 10px rgba(0, 255, 136, 0.08));
 }
 
 .hero-photo-text {
