@@ -8,6 +8,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 120px;
 }
 
 * {
@@ -544,6 +545,13 @@ header nav::after {
     transform: translate(2px, -2px);
 }
 
+.logo-box:focus-visible,
+.nav-links a:focus-visible,
+.btn-contact:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+}
+
 
 /* =========================================================
    HEADER DEPOIS DO SCROLL
@@ -669,8 +677,8 @@ header.scrolled nav {
         padding-top: 125px;
     }
 
-    header {
-        padding: 10px 0;
+    html {
+        scroll-padding-top: 145px;
     }
 }
 
@@ -1502,7 +1510,7 @@ header.scrolled nav {
         opacity 0.3s ease,
         visibility 0.3s ease;
 
-    z-index: 1000;
+    z-index: 2000;
 }
 
 .project-modal.active {
@@ -2610,43 +2618,8 @@ video {
     }
 }
 
-/* Header + formação em tablet/celular */
+/* Formação e modal em tablet/celular */
 @media (max-width: 768px) {
-    header {
-        padding: 1rem 0;
-    }
-
-    nav {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-between;
-        gap: 1rem;
-    }
-
-    .logo-box {
-        width: 44px;
-        height: 44px;
-    }
-
-    .logo {
-        font-size: 1.35rem;
-    }
-
-    .btn-contact {
-        padding: 0.55rem 1.1rem;
-        font-size: 0.82rem;
-    }
-
-    .nav-links {
-        order: 3;
-        width: 100%;
-        justify-content: center;
-        gap: clamp(1rem, 5vw, 2rem);
-        font-size: 0.9rem;
-    }
-
     .education {
         padding-top: 55px;
         padding-bottom: 55px;
