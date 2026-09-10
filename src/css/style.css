@@ -36,12 +36,11 @@ body {
 }
 
 /* =========================================================
-   HEADER — TECH / EDITORIAL V2
+   HEADER — TECH / EDITORIAL CLEAN
 ========================================================= */
 
 header {
     position: fixed;
-
     top: 0;
     left: 0;
 
@@ -53,13 +52,12 @@ header {
 
     pointer-events: none;
 
-    transition:
-        padding 0.35s ease;
+    transition: padding 0.35s ease;
 }
 
 
 /* =========================================================
-   NAV
+   NAV PRINCIPAL
 ========================================================= */
 
 header nav {
@@ -68,54 +66,39 @@ header nav {
     min-height: 72px;
 
     display: grid;
-
-    grid-template-columns:
-        auto
-        1fr
-        auto;
+    grid-template-columns: auto 1fr auto;
 
     align-items: center;
 
     gap: clamp(1rem, 3vw, 3rem);
 
-    padding:
-        10px
-        12px
-        10px
-        14px;
+    padding: 10px 12px 10px 14px;
 
     pointer-events: auto;
 
-    background:
-        linear-gradient(
-            120deg,
-            rgba(16, 16, 16, 0.96),
-            rgba(7, 7, 7, 0.97)
-        );
+    background: linear-gradient(
+        120deg,
+        rgba(16, 16, 16, 0.96),
+        rgba(7, 7, 7, 0.97)
+    );
 
-    border:
-        1px solid
-        rgba(255, 255, 255, 0.09);
+    border: 1px solid rgba(255, 255, 255, 0.09);
 
-    clip-path:
-        polygon(
-            0 0,
-            calc(100% - 18px) 0,
-            100% 18px,
-            100% 100%,
-            18px 100%,
-            0 calc(100% - 18px)
-        );
+    /* Cantos recortados */
+    clip-path: polygon(
+        0 0,
+        calc(100% - 18px) 0,
+        100% 18px,
+        100% 100%,
+        18px 100%,
+        0 calc(100% - 18px)
+    );
 
     box-shadow:
-        0 18px 60px
-        rgba(0, 0, 0, 0.48);
+        0 18px 60px rgba(0, 0, 0, 0.48);
 
-    backdrop-filter:
-        blur(20px);
-
-    -webkit-backdrop-filter:
-        blur(20px);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
 
     transition:
         min-height 0.35s ease,
@@ -126,7 +109,7 @@ header nav {
 
 
 /* =========================================================
-   LINHA TECH SUPERIOR
+   LINHA NEON SUPERIOR
 ========================================================= */
 
 header nav::before {
@@ -135,32 +118,27 @@ header nav::before {
     position: absolute;
 
     top: 0;
-
     left: 75px;
 
-    width:
-        min(340px, 35%);
-
+    width: min(340px, 35%);
     height: 1px;
 
-    background:
-        linear-gradient(
-            90deg,
-            var(--accent),
-            rgba(0, 255, 136, 0.25),
-            transparent
-        );
+    background: linear-gradient(
+        90deg,
+        var(--accent),
+        rgba(0, 255, 136, 0.25),
+        transparent
+    );
 
     box-shadow:
-        0 0 18px
-        rgba(0, 255, 136, 0.38);
+        0 0 18px rgba(0, 255, 136, 0.38);
 
     pointer-events: none;
 }
 
 
 /* =========================================================
-   DETALHE DO CANTO
+   DETALHE DO CANTO DIREITO
 ========================================================= */
 
 header nav::after {
@@ -176,12 +154,10 @@ header nav::after {
 
     border-radius: 50%;
 
-    background:
-        var(--accent);
+    background: var(--accent);
 
     box-shadow:
-        0 0 10px
-        rgba(0, 255, 136, 0.8);
+        0 0 10px rgba(0, 255, 136, 0.8);
 
     pointer-events: none;
 }
@@ -198,20 +174,15 @@ header nav::after {
     height: 50px;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
     flex-shrink: 0;
 
-    border:
-        1px solid
-        rgba(0, 255, 136, 0.5);
-
+    border: 1px solid rgba(0, 255, 136, 0.5);
     border-radius: 6px;
 
-    background:
-        rgba(0, 255, 136, 0.035);
+    background: rgba(0, 255, 136, 0.035);
 
     overflow: hidden;
 
@@ -225,7 +196,7 @@ header nav::after {
 }
 
 
-/* detalhe do logo */
+/* Linha inferior do logo */
 
 .logo-box::before {
     content: "";
@@ -238,17 +209,16 @@ header nav::after {
     width: 15px;
     height: 2px;
 
-    background:
-        var(--accent);
+    background: var(--accent);
 
     box-shadow:
-        0 0 8px
-        rgba(0, 255, 136, 0.55);
+        0 0 8px rgba(0, 255, 136, 0.55);
 
-    transition:
-        width 0.3s ease;
+    transition: width 0.3s ease;
 }
 
+
+/* Reflexo do logo */
 
 .logo-box::after {
     content: "";
@@ -261,35 +231,28 @@ header nav::after {
     width: 25px;
     height: 100px;
 
-    background:
-        linear-gradient(
-            to right,
-            transparent,
-            rgba(0, 255, 136, 0.15),
-            transparent
-        );
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(0, 255, 136, 0.15),
+        transparent
+    );
 
-    transform:
-        rotate(35deg);
+    transform: rotate(35deg);
 
-    transition:
-        left 0.45s ease;
+    transition: left 0.45s ease;
 }
 
 
 .logo-box:hover {
-    transform:
-        translateY(-2px);
+    transform: translateY(-2px);
 
-    border-color:
-        var(--accent);
+    border-color: var(--accent);
 
-    background:
-        rgba(0, 255, 136, 0.075);
+    background: rgba(0, 255, 136, 0.075);
 
     box-shadow:
-        0 0 24px
-        rgba(0, 255, 136, 0.08);
+        0 0 24px rgba(0, 255, 136, 0.08);
 }
 
 
@@ -308,19 +271,14 @@ header nav::after {
 
     z-index: 2;
 
-    color:
-        var(--text);
+    color: var(--text);
 
-    font-size:
-        1.45rem;
-
-    font-weight:
-        800;
+    font-size: 1.45rem;
+    font-weight: 800;
 
     line-height: 1;
 
-    letter-spacing:
-        -0.05em;
+    letter-spacing: -0.05em;
 }
 
 
@@ -332,15 +290,9 @@ header nav::after {
     justify-self: center;
 
     display: flex;
-
     align-items: center;
 
-    gap:
-        clamp(
-            0.4rem,
-            1.2vw,
-            1rem
-        );
+    gap: clamp(0.6rem, 1.5vw, 1.3rem);
 
     list-style: none;
 }
@@ -359,32 +311,20 @@ header nav::after {
     position: relative;
 
     display: flex;
-
     align-items: center;
 
-    gap: 0.5rem;
+    padding: 0.7rem 1rem;
 
-    padding:
-        0.65rem
-        0.85rem;
+    color: rgba(255, 255, 255, 0.52);
 
-    color:
-        rgba(255, 255, 255, 0.48);
+    font-size: 0.78rem;
+    font-weight: 600;
 
-    font-size:
-        0.76rem;
+    letter-spacing: 0.08em;
 
-    font-weight:
-        650;
+    text-transform: uppercase;
 
-    letter-spacing:
-        0.1em;
-
-    text-transform:
-        uppercase;
-
-    text-decoration:
-        none;
+    text-decoration: none;
 
     transition:
         color 0.3s ease,
@@ -392,90 +332,42 @@ header nav::after {
 }
 
 
-/* números */
-
-.nav-links li:nth-child(1) a::before {
-    content: "01";
-}
-
-.nav-links li:nth-child(2) a::before {
-    content: "02";
-}
-
-.nav-links li:nth-child(3) a::before {
-    content: "03";
-}
-
-
-.nav-links a::before {
-    color:
-        rgba(0, 255, 136, 0.42);
-
-    font-size:
-        0.55rem;
-
-    font-weight:
-        700;
-
-    letter-spacing:
-        0.04em;
-
-    transition:
-        color 0.3s ease;
-}
-
-
-/* linha inferior */
+/* Linha animada abaixo do link */
 
 .nav-links a::after {
     content: "";
 
     position: absolute;
 
-    left: 0.85rem;
-    right: 0.85rem;
-
+    left: 1rem;
+    right: 1rem;
     bottom: 2px;
 
     height: 1px;
 
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            var(--accent),
-            transparent
-        );
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--accent),
+        transparent
+    );
 
-    transform:
-        scaleX(0);
+    transform: scaleX(0);
+    transform-origin: center;
 
-    transform-origin:
-        center;
-
-    transition:
-        transform 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 
 .nav-links a:hover {
-    color:
-        var(--text);
+    color: var(--text);
 
-    transform:
-        translateY(-1px);
-}
-
-
-.nav-links a:hover::before {
-    color:
-        var(--accent);
+    transform: translateY(-1px);
 }
 
 
 .nav-links a:hover::after {
-    transform:
-        scaleX(1);
+    transform: scaleX(1);
 }
 
 
@@ -484,34 +376,20 @@ header nav::after {
 ========================================================= */
 
 .nav-links a.active {
-    color:
-        var(--text);
-}
+    color: var(--text);
 
-
-.nav-links a.active::before {
-    color:
-        var(--accent);
+    text-shadow:
+        0 0 18px rgba(0, 255, 136, 0.08);
 }
 
 
 .nav-links a.active::after {
-    transform:
-        scaleX(1);
-}
-
-
-/* pequeno marcador */
-
-.nav-links a.active {
-    text-shadow:
-        0 0 18px
-        rgba(0, 255, 136, 0.08);
+    transform: scaleX(1);
 }
 
 
 /* =========================================================
-   CONTATO
+   BOTÃO CONTATO
 ========================================================= */
 
 .btn-contact {
@@ -522,44 +400,32 @@ header nav::after {
     min-height: 46px;
 
     display: inline-flex;
-
     align-items: center;
     justify-content: center;
 
     gap: 0.7rem;
 
-    padding:
-        0.65rem
-        1.25rem;
+    padding: 0.65rem 1.25rem;
 
     overflow: hidden;
 
-    border:
-        1px solid
-        rgba(0, 255, 136, 0.48);
-
+    border: 1px solid rgba(0, 255, 136, 0.48);
     border-radius: 4px;
 
-    background:
-        rgba(0, 255, 136, 0.035);
+    background: rgba(0, 255, 136, 0.035);
 
-    color:
-        var(--accent);
+    color: var(--accent);
 
-    font-size:
-        0.75rem;
+    font-size: 0.75rem;
+    font-weight: 700;
 
-    font-weight:
-        700;
+    letter-spacing: 0.08em;
 
-    letter-spacing:
-        0.08em;
+    text-transform: uppercase;
 
-    text-transform:
-        uppercase;
+    text-decoration: none;
 
-    text-decoration:
-        none;
+    isolation: isolate;
 
     transition:
         color 0.3s ease,
@@ -570,20 +436,7 @@ header nav::after {
 }
 
 
-/* seta */
-
-.btn-contact::after {
-    content: "↗";
-
-    font-size:
-        1rem;
-
-    transition:
-        transform 0.3s ease;
-}
-
-
-/* efeito de preenchimento */
+/* Fundo animado do botão */
 
 .btn-contact::before {
     content: "";
@@ -592,15 +445,12 @@ header nav::after {
 
     inset: 0;
 
-    background:
-        var(--accent);
+    background: var(--accent);
 
-    transform:
-        translateX(-103%);
+    transform: translateX(-103%);
 
     transition:
-        transform 0.35s
-        cubic-bezier(
+        transform 0.35s cubic-bezier(
             0.4,
             0,
             0.2,
@@ -611,34 +461,36 @@ header nav::after {
 }
 
 
+/* Seta */
+
+.btn-contact::after {
+    content: "↗";
+
+    font-size: 1rem;
+
+    transition: transform 0.3s ease;
+}
+
+
 .btn-contact:hover {
-    color:
-        #050505;
+    color: #050505;
 
-    border-color:
-        var(--accent);
+    border-color: var(--accent);
 
-    transform:
-        translateY(-2px);
+    transform: translateY(-2px);
 
     box-shadow:
-        0 10px 30px
-        rgba(0, 255, 136, 0.13);
+        0 10px 30px rgba(0, 255, 136, 0.13);
 }
 
 
 .btn-contact:hover::before {
-    transform:
-        translateX(0);
+    transform: translateX(0);
 }
 
 
 .btn-contact:hover::after {
-    transform:
-        translate(
-            2px,
-            -2px
-        );
+    transform: translate(2px, -2px);
 }
 
 
@@ -649,48 +501,29 @@ header nav::after {
 .logo-box:focus-visible,
 .nav-links a:focus-visible,
 .btn-contact:focus-visible {
-    outline:
-        2px solid
-        var(--accent);
-
-    outline-offset:
-        4px;
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
 }
 
 
 /* =========================================================
-   HEADER COM SCROLL
+   HEADER APÓS SCROLL
 ========================================================= */
 
 header.scrolled {
-    padding:
-        8px 0;
+    padding: 8px 0;
 }
 
 
 header.scrolled nav {
-    min-height:
-        58px;
+    min-height: 58px;
 
-    background:
-        rgba(
-            7,
-            7,
-            7,
-            0.96
-        );
+    background: rgba(7, 7, 7, 0.96);
 
-    border-color:
-        rgba(
-            0,
-            255,
-            136,
-            0.11
-        );
+    border-color: rgba(0, 255, 136, 0.11);
 
     box-shadow:
-        0 15px 50px
-        rgba(0, 0, 0, 0.58);
+        0 15px 50px rgba(0, 0, 0, 0.58);
 }
 
 
@@ -701,37 +534,27 @@ header.scrolled nav {
 @media (max-width: 900px) {
 
     header nav {
-        gap:
-            1rem;
+        gap: 1rem;
     }
 
 
     .nav-links {
-        gap:
-            0.15rem;
+        gap: 0.15rem;
     }
 
 
     .nav-links a {
-        padding-left:
-            0.55rem;
+        padding-left: 0.65rem;
+        padding-right: 0.65rem;
 
-        padding-right:
-            0.55rem;
-
-        font-size:
-            0.68rem;
+        font-size: 0.68rem;
     }
 
 
     .btn-contact {
-        padding-left:
-            0.9rem;
-
-        padding-right:
-            0.9rem;
+        padding-left: 0.9rem;
+        padding-right: 0.9rem;
     }
-
 }
 
 
@@ -742,132 +565,98 @@ header.scrolled nav {
 @media (max-width: 768px) {
 
     body {
-        padding-top:
-            126px;
+        padding-top: 126px;
     }
 
 
     html {
-        scroll-padding-top:
-            145px;
+        scroll-padding-top: 145px;
     }
 
 
     header {
-        padding:
-            9px 0;
+        padding: 9px 0;
     }
 
 
     header nav {
-        min-height:
-            auto;
+        min-height: auto;
 
         grid-template-columns:
             auto
             auto;
 
-        gap:
-            0.75rem;
+        gap: 0.75rem;
 
-        padding:
-            8px;
+        padding: 8px;
 
-        clip-path:
-            polygon(
-                0 0,
-                calc(100% - 14px) 0,
-                100% 14px,
-                100% 100%,
-                14px 100%,
-                0 calc(100% - 14px)
-            );
+        clip-path: polygon(
+            0 0,
+            calc(100% - 14px) 0,
+            100% 14px,
+            100% 100%,
+            14px 100%,
+            0 calc(100% - 14px)
+        );
     }
 
 
     header nav::before {
-        left:
-            60px;
+        left: 60px;
 
-        width:
-            150px;
+        width: 150px;
     }
 
 
     .logo-box {
-        width:
-            42px;
-
-        height:
-            42px;
+        width: 42px;
+        height: 42px;
     }
 
 
     .logo {
-        font-size:
-            1.3rem;
+        font-size: 1.3rem;
     }
 
 
     .btn-contact {
-        min-height:
-            40px;
+        min-height: 40px;
 
-        padding:
-            0.5rem
-            0.8rem;
+        padding: 0.5rem 0.8rem;
 
-        font-size:
-            0.66rem;
+        font-size: 0.66rem;
     }
 
 
     .nav-links {
-        grid-column:
-            1 / -1;
+        grid-column: 1 / -1;
 
-        justify-self:
-            stretch;
+        justify-self: stretch;
 
-        width:
-            100%;
+        width: 100%;
 
-        justify-content:
-            space-between;
+        justify-content: space-between;
 
         gap: 0;
 
-        padding:
-            0.35rem
-            0.15rem
-            0;
+        padding: 0.35rem 0.15rem 0;
 
         border-top:
-            1px solid
-            rgba(
-                255,
-                255,
-                255,
-                0.06
-            );
+            1px solid rgba(255, 255, 255, 0.06);
     }
 
 
     .nav-links a {
-        padding:
-            0.45rem
-            0.45rem;
+        padding: 0.45rem 0.55rem;
 
-        font-size:
-            0.64rem;
+        font-size: 0.64rem;
     }
 
 
-    .nav-links a::before {
-        display:
-            none;
+    .nav-links a::after {
+        left: 0.55rem;
+        right: 0.55rem;
     }
-
 }
 
 
@@ -878,32 +667,29 @@ header.scrolled nav {
 @media (max-width: 420px) {
 
     body {
-        padding-top:
-            122px;
+        padding-top: 122px;
     }
 
 
     .nav-links a {
-        padding-left:
-            0.25rem;
+        padding-left: 0.3rem;
+        padding-right: 0.3rem;
 
-        padding-right:
-            0.25rem;
+        font-size: 0.59rem;
 
-        font-size:
-            0.59rem;
+        letter-spacing: 0.055em;
+    }
 
-        letter-spacing:
-            0.055em;
+
+    .nav-links a::after {
+        left: 0.3rem;
+        right: 0.3rem;
     }
 
 
     .btn-contact {
-        padding:
-            0.45rem
-            0.65rem;
+        padding: 0.45rem 0.65rem;
     }
-
 }
 
 /* =========================
