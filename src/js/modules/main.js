@@ -157,3 +157,22 @@ document.addEventListener('keydown', (event) => {
     }
 
 });
+
+const header = document.querySelector('header');
+
+function updateHeader() {
+
+    header.classList.toggle(
+        'scrolled',
+        window.scrollY > 30
+    );
+
+}
+
+window.addEventListener(
+    'scroll',
+    updateHeader,
+    { passive: true }
+);
+
+updateHeader();

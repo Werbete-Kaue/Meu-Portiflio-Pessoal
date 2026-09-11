@@ -8,6 +8,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 120px;
 }
 
 * {
@@ -20,7 +21,10 @@ html {
 body {
     background-color: var(--bg);
     color: var(--text);
+
     line-height: 1.6;
+
+    padding-top: 100px;
 }
 
 .container {
@@ -31,97 +35,661 @@ body {
     padding-right: clamp(24px, 5vw, 80px);
 }
 
-/* HEADER */
+/* =========================================================
+   HEADER — TECH / EDITORIAL CLEAN
+========================================================= */
 
 header {
-    padding: 1.5rem 0;
-    position: sticky;
+    position: fixed;
     top: 0;
-    background-color: rgba(5, 5, 5, 0.8);
-    backdrop-filter: blur(10px);
-    z-index: 100;
+    left: 0;
+
+    width: 100%;
+
+    padding: 14px 0;
+
+    z-index: 1000;
+
+    pointer-events: none;
+
+    transition: padding 0.35s ease;
 }
 
-nav {
-    display: flex;
-    justify-content: space-between;
+
+/* =========================================================
+   NAV PRINCIPAL
+========================================================= */
+
+header nav {
+    position: relative;
+
+    min-height: 72px;
+
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+
     align-items: center;
+
+    gap: clamp(1rem, 3vw, 3rem);
+
+    padding: 10px 12px 10px 14px;
+
+    pointer-events: auto;
+
+    background: linear-gradient(
+        120deg,
+        rgba(16, 16, 16, 0.96),
+        rgba(7, 7, 7, 0.97)
+    );
+
+    border: 1px solid rgba(255, 255, 255, 0.09);
+
+    /* Cantos recortados */
+    clip-path: polygon(
+        0 0,
+        calc(100% - 18px) 0,
+        100% 18px,
+        100% 100%,
+        18px 100%,
+        0 calc(100% - 18px)
+    );
+
+    box-shadow:
+        0 18px 60px rgba(0, 0, 0, 0.48);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    transition:
+        min-height 0.35s ease,
+        background 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
 }
+
+
+/* =========================================================
+   LINHA NEON SUPERIOR
+========================================================= */
+
+header nav::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 75px;
+
+    width: min(340px, 35%);
+    height: 1px;
+
+    background: linear-gradient(
+        90deg,
+        var(--accent),
+        rgba(0, 255, 136, 0.25),
+        transparent
+    );
+
+    box-shadow:
+        0 0 18px rgba(0, 255, 136, 0.38);
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   DETALHE DO CANTO DIREITO
+========================================================= */
+
+header nav::after {
+    content: "";
+
+    position: absolute;
+
+    right: 13px;
+    bottom: 10px;
+
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: var(--accent);
+
+    box-shadow:
+        0 0 10px rgba(0, 255, 136, 0.8);
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
 
 .logo-box {
+    position: relative;
+
     width: 50px;
     height: 50px;
-    background-color: transparent;
-    border: 2px solid var(--accent);
-    border-radius: 8px;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    flex-shrink: 0;
+
+    border: 1px solid rgba(0, 255, 136, 0.5);
+    border-radius: 6px;
+
+    background: rgba(0, 255, 136, 0.035);
+
+    overflow: hidden;
+
     cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
 }
+
+
+/* Linha inferior do logo */
+
+.logo-box::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 15px;
+    height: 2px;
+
+    background: var(--accent);
+
+    box-shadow:
+        0 0 8px rgba(0, 255, 136, 0.55);
+
+    transition: width 0.3s ease;
+}
+
+
+/* Reflexo do logo */
+
+.logo-box::after {
+    content: "";
+
+    position: absolute;
+
+    top: -30px;
+    left: -40px;
+
+    width: 25px;
+    height: 100px;
+
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(0, 255, 136, 0.15),
+        transparent
+    );
+
+    transform: rotate(35deg);
+
+    transition: left 0.45s ease;
+}
+
 
 .logo-box:hover {
-    background-color: var(--bg);
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+
+    border-color: var(--accent);
+
+    background: rgba(0, 255, 136, 0.075);
+
+    box-shadow:
+        0 0 24px rgba(0, 255, 136, 0.08);
 }
 
-.logo-box:hover .logo:hover {
-    color: var(--accent);
+
+.logo-box:hover::before {
+    width: 100%;
 }
+
+
+.logo-box:hover::after {
+    left: 70px;
+}
+
 
 .logo {
+    position: relative;
+
+    z-index: 2;
+
     color: var(--text);
+
+    font-size: 1.45rem;
     font-weight: 800;
-    font-size: 1.6rem;
+
     line-height: 1;
+
+    letter-spacing: -0.05em;
 }
 
+
+/* =========================================================
+   NAVEGAÇÃO
+========================================================= */
+
 .nav-links {
+    justify-self: center;
+
     display: flex;
-    gap: 2rem;
+    align-items: center;
+
+    gap: clamp(0.6rem, 1.5vw, 1.3rem);
+
     list-style: none;
 }
 
-.nav-links a {
-    text-decoration: none;
-    color: var(--text-dim);
-    transition: 0.3s;
+
+.nav-links li {
+    position: relative;
 }
+
+
+/* =========================================================
+   LINKS
+========================================================= */
+
+.nav-links a {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0.7rem 1rem;
+
+    color: rgba(255, 255, 255, 0.52);
+
+    font-size: 0.78rem;
+    font-weight: 600;
+
+    letter-spacing: 0.08em;
+
+    text-transform: uppercase;
+
+    text-decoration: none;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+/* Linha animada abaixo do link */
+
+.nav-links a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 1rem;
+    right: 1rem;
+    bottom: 2px;
+
+    height: 1px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--accent),
+        transparent
+    );
+
+    transform: scaleX(0);
+    transform-origin: center;
+
+    transition: transform 0.3s ease;
+}
+
 
 .nav-links a:hover {
-    color: var(--accent);
+    color: var(--text);
+
+    transform: translateY(-1px);
 }
+
+
+.nav-links a:hover::after {
+    transform: scaleX(1);
+}
+
+
+/* =========================================================
+   LINK ATIVO
+========================================================= */
+
+.nav-links a.active {
+    color: var(--text);
+
+    text-shadow:
+        0 0 18px rgba(0, 255, 136, 0.08);
+}
+
+
+.nav-links a.active::after {
+    transform: scaleX(1);
+}
+
+
+/* =========================================================
+   BOTÃO CONTATO
+========================================================= */
 
 .btn-contact {
-    background-color: transparent;
+    position: relative;
+
+    justify-self: end;
+
+    min-height: 46px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 0.7rem;
+
+    padding: 0.65rem 1.25rem;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(0, 255, 136, 0.48);
+    border-radius: 4px;
+
+    background: rgba(0, 255, 136, 0.035);
+
     color: var(--accent);
-    border: 1px solid var(--accent);
-    padding: 0.6rem 1.5rem;
-    border-radius: 50px;
-    font-weight: 600;
-    transition: all 0.4s ease;
+
+    font-size: 0.75rem;
+    font-weight: 700;
+
+    letter-spacing: 0.08em;
+
+    text-transform: uppercase;
+
     text-decoration: none;
+
+    isolation: isolate;
+
+    transition:
+        color 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
+
+
+/* Fundo animado do botão */
+
+.btn-contact::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background: var(--accent);
+
+    transform: translateX(-103%);
+
+    transition:
+        transform 0.35s cubic-bezier(
+            0.4,
+            0,
+            0.2,
+            1
+        );
+
+    z-index: -1;
+}
+
+
+/* Seta */
+
+.btn-contact::after {
+    content: "↗";
+
+    font-size: 1rem;
+
+    transition: transform 0.3s ease;
+}
+
 
 .btn-contact:hover {
-    background-color: var(--accent);
-    color: var(--bg);
-    box-shadow: 0 0 20px var(--accent);
+    color: #050505;
+
+    border-color: var(--accent);
+
     transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 30px rgba(0, 255, 136, 0.13);
 }
 
-@media (max-width: 768px) {
-   nav {
-    flex-direction: column;
-    align-items: center;
-    gap: 1.2rem;
-   }
 
-   .nav-links {
+.btn-contact:hover::before {
+    transform: translateX(0);
+}
+
+
+.btn-contact:hover::after {
+    transform: translate(2px, -2px);
+}
+
+
+/* =========================================================
+   ACESSIBILIDADE
+========================================================= */
+
+.logo-box:focus-visible,
+.nav-links a:focus-visible,
+.btn-contact:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+}
+
+
+/* =========================================================
+   HEADER APÓS SCROLL
+========================================================= */
+
+header.scrolled {
+    padding: 8px 0;
+}
+
+
+header.scrolled nav {
+    min-height: 58px;
+
+    background: rgba(7, 7, 7, 0.96);
+
+    border-color: rgba(0, 255, 136, 0.11);
+
+    box-shadow:
+        0 15px 50px rgba(0, 0, 0, 0.58);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    header nav {
+        gap: 1rem;
+    }
+
+
+    .nav-links {
+        gap: 0.15rem;
+    }
+
+
+    .nav-links a {
+        padding-left: 0.65rem;
+        padding-right: 0.65rem;
+
+        font-size: 0.68rem;
+    }
+
+
+    .btn-contact {
+        padding-left: 0.9rem;
+        padding-right: 0.9rem;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    body {
+        padding-top: 126px;
+    }
+
+
+    html {
+        scroll-padding-top: 145px;
+    }
+
+
+    header {
+        padding: 9px 0;
+    }
+
+
+    header nav {
+        min-height: auto;
+
+        grid-template-columns:
+            auto
+            auto;
+
+        gap: 0.75rem;
+
+        padding: 8px;
+
+        clip-path: polygon(
+            0 0,
+            calc(100% - 14px) 0,
+            100% 14px,
+            100% 100%,
+            14px 100%,
+            0 calc(100% - 14px)
+        );
+    }
+
+
+    header nav::before {
+        left: 60px;
+
+        width: 150px;
+    }
+
+
+    .logo-box {
+        width: 42px;
+        height: 42px;
+    }
+
+
+    .logo {
         font-size: 1.3rem;
-   }
+    }
+
+
+    .btn-contact {
+        min-height: 40px;
+
+        padding: 0.5rem 0.8rem;
+
+        font-size: 0.66rem;
+    }
+
+
+    .nav-links {
+        grid-column: 1 / -1;
+
+        justify-self: stretch;
+
+        width: 100%;
+
+        justify-content: space-between;
+
+        gap: 0;
+
+        padding: 0.35rem 0.15rem 0;
+
+        border-top:
+            1px solid rgba(255, 255, 255, 0.06);
+    }
+
+
+    .nav-links a {
+        padding: 0.45rem 0.55rem;
+
+        font-size: 0.64rem;
+    }
+
+
+    .nav-links a::after {
+        left: 0.55rem;
+        right: 0.55rem;
+    }
+}
+
+
+/* =========================================================
+   MOBILE PEQUENO
+========================================================= */
+
+@media (max-width: 420px) {
+
+    body {
+        padding-top: 122px;
+    }
+
+
+    .nav-links a {
+        padding-left: 0.3rem;
+        padding-right: 0.3rem;
+
+        font-size: 0.59rem;
+
+        letter-spacing: 0.055em;
+    }
+
+
+    .nav-links a::after {
+        left: 0.3rem;
+        right: 0.3rem;
+    }
+
+
+    .btn-contact {
+        padding: 0.45rem 0.65rem;
+    }
 }
 
 /* =========================
@@ -131,10 +699,11 @@ nav {
 .hero {
     position: relative;
 
-    height: calc(100svh - 98px);
+    height: calc(100svh - 100px);
     min-height: 650px;
 
     display: grid;
+
     grid-template-columns:
         minmax(0, 0.95fr)
         minmax(500px, 1.05fr);
@@ -951,7 +1520,7 @@ nav {
         opacity 0.3s ease,
         visibility 0.3s ease;
 
-    z-index: 1000;
+    z-index: 2000;
 }
 
 .project-modal.active {
@@ -2059,43 +2628,8 @@ video {
     }
 }
 
-/* Header + formação em tablet/celular */
+/* Formação e modal em tablet/celular */
 @media (max-width: 768px) {
-    header {
-        padding: 1rem 0;
-    }
-
-    nav {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-between;
-        gap: 1rem;
-    }
-
-    .logo-box {
-        width: 44px;
-        height: 44px;
-    }
-
-    .logo {
-        font-size: 1.35rem;
-    }
-
-    .btn-contact {
-        padding: 0.55rem 1.1rem;
-        font-size: 0.82rem;
-    }
-
-    .nav-links {
-        order: 3;
-        width: 100%;
-        justify-content: center;
-        gap: clamp(1rem, 5vw, 2rem);
-        font-size: 0.9rem;
-    }
-
     .education {
         padding-top: 55px;
         padding-bottom: 55px;
