@@ -2179,6 +2179,13 @@ header.scrolled nav {
     font-size: 2rem;
 }
 
+.skill-icon-text span {
+    color: var(--accent);
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+}
+
 
 /* INFORMAÇÕES */
 
