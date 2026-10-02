@@ -334,35 +334,6 @@ header nav::after {
         transform 0.3s ease;
 }
 
-
-/* NUMERAÇÃO DOS LINKS */
-
-.nav-links li:nth-child(1) a::before {
-    content: "01";
-}
-
-.nav-links li:nth-child(2) a::before {
-    content: "02";
-}
-
-.nav-links li:nth-child(3) a::before {
-    content: "03";
-}
-
-
-.nav-links a::before {
-    color: rgba(0, 255, 136, 0.45);
-
-    font-size: 0.58rem;
-    font-weight: 700;
-
-    letter-spacing: 0.06em;
-
-    transition:
-        color 0.3s ease;
-}
-
-
 /* LINHA INFERIOR */
 
 .nav-links a::after {
