@@ -36,23 +36,32 @@ body {
 }
 
 /* =========================================================
-   HEADER — TECH / EDITORIAL CLEAN
+   HEADER — TECH / EDITORIAL
 ========================================================= */
 
 header {
     position: fixed;
+
     top: 0;
     left: 0;
+    right: 0;
 
     width: 100%;
 
-    padding: 14px 0;
+    padding: 16px 0;
 
     z-index: 1000;
 
-    pointer-events: none;
+    background: linear-gradient(
+        to bottom,
+        rgba(5, 5, 5, 0.96) 0%,
+        rgba(5, 5, 5, 0.72) 60%,
+        transparent 100%
+    );
 
-    transition: padding 0.35s ease;
+    transition:
+        padding 0.35s ease,
+        background 0.35s ease;
 }
 
 
@@ -63,101 +72,100 @@ header {
 header nav {
     position: relative;
 
-    min-height: 72px;
-
     display: grid;
     grid-template-columns: auto 1fr auto;
 
     align-items: center;
 
-    gap: clamp(1rem, 3vw, 3rem);
+    min-height: 68px;
 
-    padding: 10px 12px 10px 14px;
+    padding: 8px 10px 8px 12px;
 
-    pointer-events: auto;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(14, 14, 14, 0.96),
+            rgba(7, 7, 7, 0.92)
+        );
 
-    background: linear-gradient(
-        120deg,
-        rgba(16, 16, 16, 0.96),
-        rgba(7, 7, 7, 0.97)
-    );
+    border: 1px solid rgba(255, 255, 255, 0.08);
 
-    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 18px;
 
-    /* Cantos recortados */
-    clip-path: polygon(
-        0 0,
-        calc(100% - 18px) 0,
-        100% 18px,
-        100% 100%,
-        18px 100%,
-        0 calc(100% - 18px)
-    );
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
 
     box-shadow:
-        0 18px 60px rgba(0, 0, 0, 0.48);
+        0 18px 55px rgba(0, 0, 0, 0.38),
+        inset 0 1px 0 rgba(255, 255, 255, 0.035);
 
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    overflow: hidden;
 
     transition:
         min-height 0.35s ease,
-        background 0.35s ease,
         border-color 0.35s ease,
+        background 0.35s ease,
         box-shadow 0.35s ease;
 }
 
 
-/* =========================================================
-   LINHA NEON SUPERIOR
-========================================================= */
+/* LINHA NEON CENTRAL */
 
 header nav::before {
     content: "";
 
     position: absolute;
 
+    left: 50%;
     top: 0;
-    left: 75px;
 
-    width: min(340px, 35%);
+    width: 42%;
     height: 1px;
 
-    background: linear-gradient(
-        90deg,
-        var(--accent),
-        rgba(0, 255, 136, 0.25),
-        transparent
-    );
+    transform: translateX(-50%);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(0, 255, 136, 0.2),
+            var(--accent),
+            rgba(0, 255, 136, 0.2),
+            transparent
+        );
 
     box-shadow:
-        0 0 18px rgba(0, 255, 136, 0.38);
+        0 0 16px rgba(0, 255, 136, 0.45);
 
     pointer-events: none;
 }
 
 
-/* =========================================================
-   DETALHE DO CANTO DIREITO
-========================================================= */
+/* GLOW SUAVE INTERNO */
 
 header nav::after {
     content: "";
 
     position: absolute;
 
-    right: 13px;
-    bottom: 10px;
+    top: -70px;
+    left: 50%;
 
-    width: 5px;
-    height: 5px;
+    width: 320px;
+    height: 110px;
+
+    transform: translateX(-50%);
 
     border-radius: 50%;
 
-    background: var(--accent);
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(0, 255, 136, 0.08),
+            transparent 70%
+        );
 
-    box-shadow:
-        0 0 10px rgba(0, 255, 136, 0.8);
+    filter: blur(22px);
 
     pointer-events: none;
 }
@@ -170,8 +178,8 @@ header nav::after {
 .logo-box {
     position: relative;
 
-    width: 50px;
-    height: 50px;
+    width: 48px;
+    height: 48px;
 
     display: flex;
     align-items: center;
@@ -179,90 +187,56 @@ header nav::after {
 
     flex-shrink: 0;
 
-    border: 1px solid rgba(0, 255, 136, 0.5);
-    border-radius: 6px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(0, 255, 136, 0.12),
+            rgba(0, 255, 136, 0.015)
+        );
 
-    background: rgba(0, 255, 136, 0.035);
+    border: 1px solid rgba(0, 255, 136, 0.7);
 
-    overflow: hidden;
+    border-radius: 12px;
 
     cursor: pointer;
+
+    overflow: hidden;
 
     transition:
         transform 0.3s ease,
         border-color 0.3s ease,
-        background 0.3s ease,
         box-shadow 0.3s ease;
 }
 
 
-/* Linha inferior do logo */
-
-.logo-box::before {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    bottom: 0;
-
-    width: 15px;
-    height: 2px;
-
-    background: var(--accent);
-
-    box-shadow:
-        0 0 8px rgba(0, 255, 136, 0.55);
-
-    transition: width 0.3s ease;
-}
-
-
-/* Reflexo do logo */
+/* CANTO DECORATIVO DO LOGO */
 
 .logo-box::after {
     content: "";
 
     position: absolute;
 
-    top: -30px;
-    left: -40px;
+    right: -7px;
+    bottom: -7px;
 
-    width: 25px;
-    height: 100px;
+    width: 18px;
+    height: 18px;
 
-    background: linear-gradient(
-        to right,
-        transparent,
-        rgba(0, 255, 136, 0.15),
-        transparent
-    );
+    background: var(--accent);
 
-    transform: rotate(35deg);
+    transform: rotate(45deg);
 
-    transition: left 0.45s ease;
+    opacity: 0.12;
 }
 
 
 .logo-box:hover {
-    transform: translateY(-2px);
+    transform: translateY(-2px) rotate(-2deg);
 
     border-color: var(--accent);
 
-    background: rgba(0, 255, 136, 0.075);
-
     box-shadow:
-        0 0 24px rgba(0, 255, 136, 0.08);
-}
-
-
-.logo-box:hover::before {
-    width: 100%;
-}
-
-
-.logo-box:hover::after {
-    left: 70px;
+        0 0 24px rgba(0, 255, 136, 0.16);
 }
 
 
@@ -278,12 +252,21 @@ header nav::after {
 
     line-height: 1;
 
-    letter-spacing: -0.05em;
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.logo-box:hover .logo {
+    color: var(--accent);
+
+    transform: scale(1.06);
 }
 
 
 /* =========================================================
-   NAVEGAÇÃO
+   LINKS
 ========================================================= */
 
 .nav-links {
@@ -292,7 +275,7 @@ header nav::after {
     display: flex;
     align-items: center;
 
-    gap: clamp(0.6rem, 1.5vw, 1.3rem);
+    gap: 0.3rem;
 
     list-style: none;
 }
@@ -300,12 +283,30 @@ header nav::after {
 
 .nav-links li {
     position: relative;
+
+    display: flex;
 }
 
 
-/* =========================================================
-   LINKS
-========================================================= */
+/* SEPARADORES */
+
+.nav-links li:not(:last-child)::after {
+    content: "";
+
+    position: absolute;
+
+    top: 50%;
+    right: -2px;
+
+    width: 1px;
+    height: 14px;
+
+    transform: translateY(-50%);
+
+    background:
+        rgba(255, 255, 255, 0.07);
+}
+
 
 .nav-links a {
     position: relative;
@@ -313,11 +314,13 @@ header nav::after {
     display: flex;
     align-items: center;
 
-    padding: 0.7rem 1rem;
+    gap: 0.4rem;
 
-    color: rgba(255, 255, 255, 0.52);
+    padding: 0.65rem 1rem;
 
-    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.48);
+
+    font-size: 0.79rem;
     font-weight: 600;
 
     letter-spacing: 0.08em;
@@ -332,7 +335,35 @@ header nav::after {
 }
 
 
-/* Linha animada abaixo do link */
+/* NUMERAÇÃO DOS LINKS */
+
+.nav-links li:nth-child(1) a::before {
+    content: "01";
+}
+
+.nav-links li:nth-child(2) a::before {
+    content: "02";
+}
+
+.nav-links li:nth-child(3) a::before {
+    content: "03";
+}
+
+
+.nav-links a::before {
+    color: rgba(0, 255, 136, 0.45);
+
+    font-size: 0.58rem;
+    font-weight: 700;
+
+    letter-spacing: 0.06em;
+
+    transition:
+        color 0.3s ease;
+}
+
+
+/* LINHA INFERIOR */
 
 .nav-links a::after {
     content: "";
@@ -341,21 +372,24 @@ header nav::after {
 
     left: 1rem;
     right: 1rem;
-    bottom: 2px;
+    bottom: 3px;
 
     height: 1px;
 
-    background: linear-gradient(
-        90deg,
-        transparent,
-        var(--accent),
-        transparent
-    );
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--accent),
+            transparent
+        );
 
     transform: scaleX(0);
+
     transform-origin: center;
 
-    transition: transform 0.3s ease;
+    transition:
+        transform 0.3s ease;
 }
 
 
@@ -363,6 +397,11 @@ header nav::after {
     color: var(--text);
 
     transform: translateY(-1px);
+}
+
+
+.nav-links a:hover::before {
+    color: var(--accent);
 }
 
 
@@ -377,9 +416,11 @@ header nav::after {
 
 .nav-links a.active {
     color: var(--text);
+}
 
-    text-shadow:
-        0 0 18px rgba(0, 255, 136, 0.08);
+
+.nav-links a.active::before {
+    color: var(--accent);
 }
 
 
@@ -397,35 +438,39 @@ header nav::after {
 
     justify-self: end;
 
-    min-height: 46px;
-
     display: inline-flex;
     align-items: center;
     justify-content: center;
 
-    gap: 0.7rem;
+    gap: 0.55rem;
 
-    padding: 0.65rem 1.25rem;
+    min-height: 46px;
+
+    padding: 0.65rem 1.35rem;
 
     overflow: hidden;
 
-    border: 1px solid rgba(0, 255, 136, 0.48);
-    border-radius: 4px;
+    border: 1px solid rgba(0, 255, 136, 0.58);
 
-    background: rgba(0, 255, 136, 0.035);
+    border-radius: 11px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0, 255, 136, 0.075),
+            rgba(0, 255, 136, 0.018)
+        );
 
     color: var(--accent);
 
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     font-weight: 700;
 
-    letter-spacing: 0.08em;
+    letter-spacing: 0.04em;
 
     text-transform: uppercase;
 
     text-decoration: none;
-
-    isolation: isolate;
 
     transition:
         color 0.3s ease,
@@ -436,67 +481,69 @@ header nav::after {
 }
 
 
-/* Fundo animado do botão */
-
-.btn-contact::before {
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    background: var(--accent);
-
-    transform: translateX(-103%);
-
-    transition:
-        transform 0.35s cubic-bezier(
-            0.4,
-            0,
-            0.2,
-            1
-        );
-
-    z-index: -1;
-}
-
-
-/* Seta */
+/* SETA */
 
 .btn-contact::after {
     content: "↗";
 
     font-size: 1rem;
 
-    transition: transform 0.3s ease;
+    transition:
+        transform 0.3s ease;
+}
+
+
+/* REFLEXO */
+
+.btn-contact::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -60%;
+
+    width: 35%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.22),
+            transparent
+        );
+
+    transform: skewX(-20deg);
+
+    transition:
+        left 0.55s ease;
 }
 
 
 .btn-contact:hover {
     color: #050505;
 
+    background: var(--accent);
+
     border-color: var(--accent);
 
     transform: translateY(-2px);
 
     box-shadow:
-        0 10px 30px rgba(0, 255, 136, 0.13);
+        0 10px 30px rgba(0, 255, 136, 0.17),
+        0 0 22px rgba(0, 255, 136, 0.09);
 }
 
 
 .btn-contact:hover::before {
-    transform: translateX(0);
+    left: 130%;
 }
 
 
 .btn-contact:hover::after {
     transform: translate(2px, -2px);
 }
-
-
-/* =========================================================
-   ACESSIBILIDADE
-========================================================= */
 
 .logo-box:focus-visible,
 .nav-links a:focus-visible,
@@ -507,110 +554,65 @@ header nav::after {
 
 
 /* =========================================================
-   HEADER APÓS SCROLL
+   HEADER DEPOIS DO SCROLL
 ========================================================= */
 
 header.scrolled {
-    padding: 8px 0;
+    padding-top: 8px;
+    padding-bottom: 8px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(5, 5, 5, 0.97),
+            rgba(5, 5, 5, 0.86)
+        );
 }
 
 
 header.scrolled nav {
     min-height: 58px;
 
-    background: rgba(7, 7, 7, 0.96);
+    background:
+        rgba(7, 7, 7, 0.94);
 
-    border-color: rgba(0, 255, 136, 0.11);
+    border-color:
+        rgba(0, 255, 136, 0.1);
 
     box-shadow:
-        0 15px 50px rgba(0, 0, 0, 0.58);
+        0 18px 55px rgba(0, 0, 0, 0.52),
+        0 0 35px rgba(0, 255, 136, 0.025);
 }
 
 
 /* =========================================================
-   TABLET
-========================================================= */
-
-@media (max-width: 900px) {
-
-    header nav {
-        gap: 1rem;
-    }
-
-
-    .nav-links {
-        gap: 0.15rem;
-    }
-
-
-    .nav-links a {
-        padding-left: 0.65rem;
-        padding-right: 0.65rem;
-
-        font-size: 0.68rem;
-    }
-
-
-    .btn-contact {
-        padding-left: 0.9rem;
-        padding-right: 0.9rem;
-    }
-}
-
-
-/* =========================================================
-   MOBILE
+   RESPONSIVIDADE
 ========================================================= */
 
 @media (max-width: 768px) {
 
-    body {
-        padding-top: 126px;
-    }
-
-
-    html {
-        scroll-padding-top: 145px;
-    }
-
-
     header {
-        padding: 9px 0;
+        padding: 10px 0;
     }
-
 
     header nav {
-        min-height: auto;
-
         grid-template-columns:
             auto
             auto;
 
         gap: 0.75rem;
 
-        padding: 8px;
+        padding: 7px;
 
-        clip-path: polygon(
-            0 0,
-            calc(100% - 14px) 0,
-            100% 14px,
-            100% 100%,
-            14px 100%,
-            0 calc(100% - 14px)
-        );
-    }
-
-
-    header nav::before {
-        left: 60px;
-
-        width: 150px;
+        border-radius: 15px;
     }
 
 
     .logo-box {
         width: 42px;
         height: 42px;
+
+        border-radius: 10px;
     }
 
 
@@ -622,73 +624,61 @@ header.scrolled nav {
     .btn-contact {
         min-height: 40px;
 
-        padding: 0.5rem 0.8rem;
+        padding:
+            0.5rem
+            0.85rem;
 
-        font-size: 0.66rem;
+        font-size: 0.72rem;
     }
 
 
     .nav-links {
-        grid-column: 1 / -1;
+        grid-column:
+            1 / -1;
 
-        justify-self: stretch;
+        justify-self:
+            stretch;
 
         width: 100%;
 
-        justify-content: space-between;
+        justify-content:
+            center;
 
         gap: 0;
 
-        padding: 0.35rem 0.15rem 0;
+        padding-top: 0.25rem;
 
         border-top:
-            1px solid rgba(255, 255, 255, 0.06);
+            1px solid
+            rgba(255, 255, 255, 0.05);
     }
 
 
     .nav-links a {
-        padding: 0.45rem 0.55rem;
+        padding:
+            0.55rem
+            0.65rem;
 
-        font-size: 0.64rem;
+        font-size:
+            0.68rem;
     }
 
 
-    .nav-links a::after {
-        left: 0.55rem;
-        right: 0.55rem;
+    .nav-links a::before {
+        display: none;
     }
-}
 
 
-/* =========================================================
-   MOBILE PEQUENO
-========================================================= */
-
-@media (max-width: 420px) {
+    .nav-links li:not(:last-child)::after {
+        display: none;
+    }
 
     body {
-        padding-top: 122px;
+        padding-top: 125px;
     }
 
-
-    .nav-links a {
-        padding-left: 0.3rem;
-        padding-right: 0.3rem;
-
-        font-size: 0.59rem;
-
-        letter-spacing: 0.055em;
-    }
-
-
-    .nav-links a::after {
-        left: 0.3rem;
-        right: 0.3rem;
-    }
-
-
-    .btn-contact {
-        padding: 0.45rem 0.65rem;
+    html {
+        scroll-padding-top: 145px;
     }
 }
 
@@ -2179,13 +2169,6 @@ header.scrolled nav {
     font-size: 2rem;
 }
 
-.skill-icon-text span {
-    color: var(--accent);
-    font-size: 0.8rem;
-    font-weight: 800;
-    letter-spacing: -0.03em;
-}
-
 
 /* INFORMAÇÕES */
 
@@ -2965,5 +2948,236 @@ video {
 
     .project-modal-content {
         padding: 0.75rem;
+    }
+}
+
+/* =========================================================
+   CARDS DE PROJETO — NOVO LAYOUT
+   Informação essencial visível sem depender do modal.
+========================================================= */
+.education-project {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    height: 100%;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.025);
+    cursor: pointer;
+    transition: transform .28s ease, border-color .28s ease, background-color .28s ease, box-shadow .28s ease;
+}
+
+.education-project:hover {
+    transform: translateY(-4px);
+    border-color: rgba(0, 255, 136, 0.28);
+    background: rgba(255, 255, 255, 0.04);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.24);
+}
+
+.education-project:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
+.education-project-image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    flex: 0 0 auto;
+    overflow: hidden;
+    border-radius: 17px 17px 0 0;
+    background: #090909;
+}
+
+.education-project-image img,
+.education-project-image video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+}
+
+.education-project-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: .85rem;
+    padding: 1.15rem 1.15rem 1.2rem;
+}
+
+.education-project-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: .8rem;
+}
+
+.education-project-heading h5 {
+    min-width: 0;
+    margin: 0;
+    color: var(--text);
+    font-size: 1.02rem;
+    line-height: 1.3;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+.education-project-role {
+    flex: 0 0 auto;
+    padding: .3rem .55rem;
+    border: 1px solid rgba(0, 255, 136, 0.22);
+    border-radius: 999px;
+    background: rgba(0, 255, 136, 0.07);
+    color: var(--accent);
+    font-size: .68rem;
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: .03em;
+    white-space: nowrap;
+}
+
+.education-project-description {
+    margin: 0;
+    color: var(--text-dim);
+    font-size: .86rem;
+    line-height: 1.6;
+}
+
+.education-project-technologies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .45rem;
+}
+
+.education-project-technologies span {
+    padding: .32rem .52rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 7px;
+    background: rgba(255, 255, 255, 0.035);
+    color: rgba(255, 255, 255, 0.72);
+    font-size: .68rem;
+    line-height: 1.15;
+    font-weight: 600;
+}
+
+.education-project-more {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    margin-top: auto;
+    padding-top: .15rem;
+    color: var(--accent);
+    font-size: .82rem;
+    line-height: 1.2;
+    font-weight: 700;
+    transition: transform .25s ease;
+}
+
+.education-project:hover .education-project-more {
+    transform: translateX(4px);
+}
+
+/* O título antigo era um <p> direto do card. No novo layout ele não existe. */
+.education-project > p {
+    display: none;
+}
+
+/* Mantém a grade equilibrada com cards de alturas diferentes. */
+.education-projects-grid {
+    align-items: stretch;
+}
+
+/* =========================================================
+   COMPATIBILIDADE COM A HIERARQUIA SEMÂNTICA DO HTML NOVO
+========================================================= */
+.education-title h3 {
+    margin: 0;
+}
+
+.skills-group-header h3,
+.skill-info h4,
+.footer-brand-text h2,
+.project-modal-info h2 {
+    margin-top: 0;
+}
+
+/* =========================================================
+   OTIMIZAÇÕES DE RENDERIZAÇÃO SEGURAS
+========================================================= */
+.education-project-image video,
+.hero-photo,
+.education-logo img {
+    backface-visibility: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .education-project,
+    .education-project-image img,
+    .education-project-image video,
+    .education-project-more {
+        transition: none !important;
+    }
+
+    .education-project:hover,
+    .education-project:hover .education-project-more {
+        transform: none;
+    }
+}
+
+/* =========================================================
+   RESPONSIVIDADE DOS NOVOS CARDS
+========================================================= */
+@media (max-width: 768px) {
+    .education-project-content {
+        padding: 1rem;
+    }
+
+    .education-project-heading {
+        gap: .65rem;
+    }
+
+    .education-project-heading h5 {
+        font-size: .96rem;
+    }
+
+    .education-project-description {
+        font-size: .82rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .education-project {
+        border-radius: 16px;
+    }
+
+    .education-project-image {
+        border-radius: 15px 15px 0 0;
+    }
+
+    .education-project-content {
+        gap: .75rem;
+        padding: 1rem;
+    }
+
+    .education-project-heading h5 {
+        font-size: 1rem;
+    }
+
+    .education-project-description {
+        font-size: .85rem;
+        line-height: 1.55;
+    }
+
+    .education-project-role,
+    .education-project-technologies span {
+        font-size: .66rem;
+    }
+}
+
+@media (max-width: 380px) {
+    .education-project-heading {
+        flex-direction: column;
+        align-items: flex-start;
     }
 }
