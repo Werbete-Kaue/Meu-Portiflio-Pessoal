@@ -3,29 +3,76 @@
 
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Portfólio de Werbete Kauê, Desenvolvedor Front-End. Projetos, formação, tecnologias e conhecimentos em desenvolvimento web."
+    >
+
+    <title>Werbete Kauê | Desenvolvedor Front-End</title>
+
+    <!-- CSS principal -->
     <link rel="stylesheet" href="src/css/style.css">
-    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
-    <link rel="shortcut icon" href="src/assets/images/icone-fevicon.png" type="image/x-icon">
-    <title>Meu Portifólio Pessoal</title>
+
+    <!--
+        Devicon não precisa bloquear a primeira renderização.
+        O preload inicia o download e o transforma em stylesheet
+        somente quando estiver disponível.
+    -->
+    <link
+        rel="preload"
+        href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+        as="style"
+        onload="this.onload=null;this.rel='stylesheet'"
+    >
+
+    <noscript>
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+        >
+    </noscript>
+
+    <link
+        rel="icon"
+        href="src/assets/images/icone-fevicon.png"
+        type="image/png"
+    >
 </head>
 
 <body>
+
     <header>
+
         <nav class="container">
+
             <div class="logo-box">
                 <div class="logo">K</div>
             </div>
+
             <ul class="nav-links">
                 <li><a href="#home">Início</a></li>
                 <li><a href="#education">Formação</a></li>
                 <li><a href="#skills">Habilidades</a></li>
             </ul>
-            <a href="mailto:werbetekaue29@gmail.com" target="_blank" class="btn-contact">Fale Comigo</a>
+
+            <a
+                href="mailto:werbetekaue29@gmail.com"
+                class="btn-contact"
+            >
+                Fale Comigo
+            </a>
+
         </nav>
+
     </header>
 
+
     <main>
+
+        <!-- HERO -->
         <section id="home" class="hero container">
 
             <div class="hero-content">
@@ -35,11 +82,16 @@
                 </span>
 
                 <div class="hero-intro">
-                    <span class="hero-greeting">Olá, eu sou</span>
+
+                    <span class="hero-greeting">
+                        Olá, eu sou
+                    </span>
 
                     <p class="hero-name">
-                        <span id="typewriter"></span><span class="cursor">|</span>
+                        <span id="typewriter"></span>
+                        <span class="cursor">|</span>
                     </p>
+
                 </div>
 
                 <h1 class="hero-title">
@@ -56,11 +108,17 @@
 
                 <div class="hero-actions">
 
-                    <a href="#education" class="hero-btn hero-btn-primary">
+                    <a
+                        href="#education"
+                        class="hero-btn hero-btn-primary"
+                    >
                         Ver minha trajetória
                     </a>
 
-                    <a href="mailto:werbetekaue29@gmail.com" target="_blank" class="hero-btn hero-btn-secondary">
+                    <a
+                        href="mailto:werbetekaue29@gmail.com"
+                        class="hero-btn hero-btn-secondary"
+                    >
                         Fale comigo
                     </a>
 
@@ -68,28 +126,44 @@
 
                 <div class="social-links">
 
-                    <a href="https://www.linkedin.com/in/werbete-kau%C3%AA-barbosa-ferreira-/" target="_blank"
-                        aria-label="LinkedIn">
-
+                    <a
+                        href="https://www.linkedin.com/in/werbete-kau%C3%AA-barbosa-ferreira-/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="LinkedIn"
+                    >
                         <i class="devicon-linkedin-plain"></i>
-
                     </a>
 
-                    <a href="https://github.com/Werbete-Kaue" target="_blank" aria-label="GitHub">
-
+                    <a
+                        href="https://github.com/Werbete-Kaue"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="GitHub"
+                    >
                         <i class="devicon-github-original"></i>
-
                     </a>
 
                 </div>
 
             </div>
 
+
             <div class="hero-photo-area">
 
                 <div class="hero-photo-circle"></div>
 
-                <img class="hero-photo" src="src/assets/images/foto-kaue.png" alt="Foto de Kauê">
+                <!--
+                    Imagem importante da primeira tela.
+                    NÃO usar lazy loading aqui.
+                -->
+                <img
+                    class="hero-photo"
+                    src="src/assets/images/foto-kaue.png"
+                    alt="Werbete Kauê"
+                    fetchpriority="high"
+                    decoding="async"
+                >
 
                 <div class="hero-photo-text">
                     <span>DISCIPLINA</span>
@@ -100,21 +174,41 @@
             </div>
 
         </section>
-        <section id="education" class="education container">
-            <h3 class="section-title">Formação & Experiência</h3>
 
+
+        <!-- FORMAÇÃO -->
+        <section id="education" class="education container">
+
+            <h2 class="section-title">
+                Formação & Experiência
+            </h2>
+
+
+            <!-- SENAI -->
             <article class="education-card">
 
                 <div class="education-header">
 
                     <div class="education-logo">
-                        <img src="src/assets/images/logo-senai 33.png" alt="Logo do SENAI">
+
+                        <img
+                            src="src/assets/images/logo-senai 33.png"
+                            alt="Logo do SENAI"
+                            loading="lazy"
+                            decoding="async"
+                        >
+
                     </div>
 
                     <div class="education-title">
-                        <span class="education-status">Concluído</span>
 
-                        <h4>Programação Full-Stack</h4>
+                        <span class="education-status">
+                            Concluído
+                        </span>
+
+                        <h3>
+                            Programação Full-Stack
+                        </h3>
 
                         <p class="education-institution">
                             SENAI — Serviço Nacional de Aprendizagem Industrial
@@ -123,76 +217,147 @@
                         <p class="education-period">
                             Fevereiro de 2025 — Fevereiro de 2026
                         </p>
+
                     </div>
 
                 </div>
 
+
                 <p class="education-description">
+
                     Formação em desenvolvimento Full-Stack, abrangendo a construção
                     de aplicações web e o desenvolvimento de soluções tanto no
                     Front-End quanto no Back-End. Durante o curso, foram trabalhados
                     fundamentos de programação, desenvolvimento de interfaces,
                     lógica de programação, integração entre sistemas e boas práticas
                     de desenvolvimento de software.
+
                 </p>
 
+
                 <div class="education-projects">
+
                     <p class="education-projects-title">
                         Projetos desenvolvidos
                     </p>
 
+
                     <div class="education-projects-grid">
 
-                        <article href="#" class="education-project" data-description="O Mundo Selvagem é um site interativo e responsivo desenvolvido para apresentar diferentes animais de forma visual e dinâmica. A página conta com navegação adaptada para dispositivos móveis, seção de animais com troca de informações por abas, área de curiosidades em formato accordion, slider de imagens, menu dropdown, modal de login e tooltips na seção de contato. O projeto foi estruturado com foco em organização, interatividade e experiência do usuário." data-technologies="HTML5, CSS3, CSS Grid, JavaScript ES Modules">
+
+                        <!-- MUNDO SELVAGEM -->
+                        <article
+                            class="education-project"
+                            data-description="O Mundo Selvagem é um site interativo e responsivo desenvolvido para apresentar diferentes animais de forma visual e dinâmica. A página conta com navegação adaptada para dispositivos móveis, seção de animais com troca de informações por abas, área de curiosidades em formato accordion, slider de imagens, menu dropdown, modal de login e tooltips na seção de contato. O projeto foi estruturado com foco em organização, interatividade e experiência do usuário."
+                            data-technologies="HTML5, CSS3, CSS Grid, JavaScript ES Modules"
+                        >
+
                             <div class="education-project-image">
+
                                 <video
                                     src="src/assets/videos/National Geopraphic - Google Chrome 2026-09-06 12-43-19.mp4"
-                                    muted loop playsinline preload="metadata"></video>
+                                    muted
+                                    loop
+                                    playsinline
+                                    preload="none"
+                                ></video>
 
                                 <span class="education-project-overlay">
                                     Ver projeto
                                 </span>
+
                             </div>
 
                             <p>Mundo Selvagem</p>
+
                         </article>
 
-                        <article href="#" class="education-project" data-description="O NeoStream é uma landing page de streaming com visual moderno e inspirador em serviços de entretenimento digitais. O projeto foi desenvolvido para oferecer uma experiência visual imersiva, com navegação intuitiva, carrosséis, modais e organização de conteúdo por categorias, reforçando uma identidade premium e prática para explorar filmes e séries." data-technologies="HTML5, CSS3, JavaScript ES Modules">
+
+                        <!-- NEOSTREAM -->
+                        <article
+                            class="education-project"
+                            data-description="O NeoStream é uma landing page de streaming com visual moderno e inspirador em serviços de entretenimento digitais. O projeto foi desenvolvido para oferecer uma experiência visual imersiva, com navegação intuitiva, carrosséis, modais e organização de conteúdo por categorias, reforçando uma identidade premium e prática para explorar filmes e séries."
+                            data-technologies="HTML5, CSS3, JavaScript ES Modules"
+                        >
+
                             <div class="education-project-image">
-                                <video src="src/assets/videos/NeoStream.mp4" muted loop playsinline
-                                    preload="metadata"></video>
+
+                                <video
+                                    src="src/assets/videos/NeoStream.mp4"
+                                    muted
+                                    loop
+                                    playsinline
+                                    preload="none"
+                                ></video>
 
                                 <span class="education-project-overlay">
                                     Ver projeto
                                 </span>
+
                             </div>
 
                             <p>NeoStream</p>
+
                         </article>
 
-                        <article class="education-project" data-description="Aplicação full stack de gestão de tarefas, com interface moderna em React e backend em Django, focada em organização, produtividade e controle de acesso do usuário. O projeto integra autenticação, comunicação entre frontend e API, e uma estrutura eficiente para listar, criar e gerenciar tarefas de forma prática e escalável." data-technologies="React, Vite, Tailwind CSS, Django, Django REST Framework, JWT, SQLite">
+
+                        <!-- FOCUS -->
+                        <article
+                            class="education-project"
+                            data-description="Aplicação full stack de gestão de tarefas, com interface moderna em React e backend em Django, focada em organização, produtividade e controle de acesso do usuário. O projeto integra autenticação, comunicação entre frontend e API, e uma estrutura eficiente para listar, criar e gerenciar tarefas de forma prática e escalável."
+                            data-technologies="React, Vite, Tailwind CSS, Django, Django REST Framework, JWT, SQLite"
+                        >
+
                             <div class="education-project-image">
-                                <video src="src/assets/videos/Focus.mp4" muted loop playsinline
-                                    preload="metadata"></video>
+
+                                <video
+                                    src="src/assets/videos/Focus.mp4"
+                                    muted
+                                    loop
+                                    playsinline
+                                    preload="none"
+                                ></video>
+
                             </div>
 
-                            <p>Gerenciador de tarefas Focus</p>
+                            <p>
+                                Gerenciador de tarefas Focus
+                            </p>
+
                         </article>
+
                     </div>
+
                 </div>
 
             </article>
 
+
+            <!-- JOVEM TECH -->
             <article class="education-card">
+
                 <div class="education-header">
+
                     <div class="education-logo">
-                        <img src="src/assets/images/log-pulse 33.png" alt="Logo do Jovem Tech">
+
+                        <img
+                            src="src/assets/images/log-pulse 33.png"
+                            alt="Logo do Jovem Tech"
+                            loading="lazy"
+                            decoding="async"
+                        >
+
                     </div>
 
                     <div class="education-title">
-                        <span class="education-status">Em andamento</span>
 
-                        <h4>Jovem Tech — Trilha Front-End</h4>
+                        <span class="education-status">
+                            Em andamento
+                        </span>
+
+                        <h3>
+                            Jovem Tech — Trilha Front-End
+                        </h3>
 
                         <p class="education-institution">
                             Programa Jovem Tech
@@ -201,16 +366,22 @@
                         <p class="education-period">
                             2026 — Atual
                         </p>
+
                     </div>
+
                 </div>
 
+
                 <p class="education-description">
+
                     Participação no Programa Jovem Tech, iniciativa de formação em tecnologia
                     composta pelas trilhas de Front-End, Back-End e Dados. Atualmente integro
                     a trilha de Front-End, com aprendizado voltado à construção de interfaces
                     web, lógica de programação, JavaScript e desenvolvimento de aplicações,
                     combinando conhecimentos técnicos com atividades e projetos práticos.
+
                 </p>
+
 
                 <div class="education-projects">
 
@@ -218,90 +389,218 @@
                         Projetos desenvolvidos
                     </p>
 
+
                     <div class="education-projects-grid">
 
-                        <article class="education-project" data-description="Este projeto é um jogo de adivinhação em que o usuário tenta descobrir um número secreto com dicas dinâmicas sobre se o palpite está acima ou abaixo do valor correto. A interface é simples e intuitiva, com foco em uma experiência direta e interativa, demonstrando como HTML, CSS e JavaScript podem ser usados para criar uma aplicação funcional e agradável." data-technologies="HTML5, CSS3, JavaScript, Responsividade">
+
+                        <!-- NÚMERO SECRETO -->
+                        <article
+                            class="education-project"
+                            data-description="Este projeto é um jogo de adivinhação em que o usuário tenta descobrir um número secreto com dicas dinâmicas sobre se o palpite está acima ou abaixo do valor correto. A interface é simples e intuitiva, com foco em uma experiência direta e interativa, demonstrando como HTML, CSS e JavaScript podem ser usados para criar uma aplicação funcional e agradável."
+                            data-technologies="HTML5, CSS3, JavaScript, Responsividade"
+                        >
+
                             <div class="education-project-image">
-                                <video src="src/assets/videos/Numero-secreto.mp4" muted loop playsinline
-                                    preload="metadata"></video>
+
+                                <video
+                                    src="src/assets/videos/Numero-secreto.mp4"
+                                    muted
+                                    loop
+                                    playsinline
+                                    preload="none"
+                                ></video>
+
                             </div>
-                            <p>Jogo número secreto</p>
+
+                            <p>
+                                Jogo número secreto
+                            </p>
+
                         </article>
 
-                        <article class="education-project" data-description="Este projeto é um timer de foco inspirado no método Pomodoro, pensado para ajudar os usuários a controlar melhor seu tempo, aumentar a produtividade e manter pausas mais equilibradas durante o trabalho. Com uma interface simples e visualmente agradável, ele permite alternar entre modo de foco, descanso curto e descanso longo, além de incluir música ambiente para melhorar a experiência de uso." data-technologies="HTML5, CSS3, JavaScript, JavaScript Audio API">
+
+                        <!-- FOKUS -->
+                        <article
+                            class="education-project"
+                            data-description="Este projeto é um timer de foco inspirado no método Pomodoro, pensado para ajudar os usuários a controlar melhor seu tempo, aumentar a produtividade e manter pausas mais equilibradas durante o trabalho. Com uma interface simples e visualmente agradável, ele permite alternar entre modo de foco, descanso curto e descanso longo, além de incluir música ambiente para melhorar a experiência de uso."
+                            data-technologies="HTML5, CSS3, JavaScript, JavaScript Audio API"
+                        >
+
                             <div class="education-project-image">
-                                <video src="src/assets/videos/Fokus.mp4" muted loop playsinline
-                                    preload="metadata"></video>
+
+                                <video
+                                    src="src/assets/videos/Fokus.mp4"
+                                    muted
+                                    loop
+                                    playsinline
+                                    preload="none"
+                                ></video>
+
                             </div>
+
                             <p>Fokus</p>
+
                         </article>
 
-                        <article class="education-project" data-description="Landing page moderna e institucional do K2 Bank, desenvolvida para comunicar confiança, inovação e praticidade em uma experiência bancária digital. Com visual em dark mode, elementos premium e estrutura responsiva, a página destaca os principais benefícios da marca, como segurança, clareza e eficiência no atendimento financeiro." data-technologies="HTML5, CSS3, Flexbox, CSS Grid">
+
+                        <!-- K2 BANK -->
+                        <article
+                            class="education-project"
+                            data-description="Landing page moderna e institucional do K2 Bank, desenvolvida para comunicar confiança, inovação e praticidade em uma experiência bancária digital. Com visual em dark mode, elementos premium e estrutura responsiva, a página destaca os principais benefícios da marca, como segurança, clareza e eficiência no atendimento financeiro."
+                            data-technologies="HTML5, CSS3, Flexbox, CSS Grid"
+                        >
+
                             <div class="education-project-image">
-                                <video src="src/assets/videos/K2 Bank - Google Chrome 2026-09-06 15-36-07.mp4" muted
-                                    loop playsinline preload="metadata"></video>
+
+                                <video
+                                    src="src/assets/videos/K2 Bank - Google Chrome 2026-09-06 15-36-07.mp4"
+                                    muted
+                                    loop
+                                    playsinline
+                                    preload="none"
+                                ></video>
+
                             </div>
-                            <p>Página sistema bancário K2 Bank</p>
+
+                            <p>
+                                Página sistema bancário K2 Bank
+                            </p>
+
                         </article>
 
-                        <article class="education-project" data-description="O Presença Inteligente é um sistema web Full Stack desenvolvido em colaboração com um colega de turma do programa Jovem Tech, voltado ao controle e acompanhamento da frequência escolar por geolocalização. No projeto, fui responsável pelo desenvolvimento Front-End, criando as interfaces dos painéis de aluno e supervisor, enquanto meu colega ficou responsável pelo Back-End. A aplicação permite que alunos registrem sua presença utilizando a localização do dispositivo, enquanto supervisores acompanham os registros diários, realizam lançamentos manuais, corrigem ocorrências e geram relatórios." data-technologies="HTML5, CSS3, JavaScript, Vite, Fetch API, Geolocation API, Node.js, Express, JWT (JSON Web Token), bcryptjs, CORS, dotenv, Multer, PostgreSQL">
+
+                        <!-- PRESENÇA INTELIGENTE -->
+                        <article
+                            class="education-project"
+                            data-description="O Presença Inteligente é um sistema web Full Stack desenvolvido em colaboração com um colega de turma do programa Jovem Tech, voltado ao controle e acompanhamento da frequência escolar por geolocalização. No projeto, fui responsável pelo desenvolvimento Front-End, criando as interfaces dos painéis de aluno e supervisor, enquanto meu colega ficou responsável pelo Back-End. A aplicação permite que alunos registrem sua presença utilizando a localização do dispositivo, enquanto supervisores acompanham os registros diários, realizam lançamentos manuais, corrigem ocorrências e geram relatórios."
+                            data-technologies="HTML5, CSS3, JavaScript, Vite, Fetch API, Geolocation API, Node.js, Express, JWT (JSON Web Token), bcryptjs, CORS, dotenv, Multer, PostgreSQL"
+                        >
+
                             <div class="education-project-image">
-                                <video src="src/assets/videos/presenca-inteligente-video.mp4" muted loop playsinline preload="metadata"></video>
+
+                                <video
+                                    src="src/assets/videos/presenca-inteligente-video.mp4"
+                                    muted
+                                    loop
+                                    playsinline
+                                    preload="none"
+                                ></video>
+
                             </div>
-                            <p>Presença Inteligente</p>
+
+                            <p>
+                                Presença Inteligente
+                            </p>
+
                         </article>
 
-                        <article class="education-project" data-description="Aplicação web para organizar pensamentos, frases e citações. Permite cadastrar, visualizar, editar e excluir conteúdos, com as informações armazenadas em uma API simulada usando JSON Server." data-technologies="HTML5, CSS3, JavaScript, Axios, API REST, JSON Server, Node.js">
+
+                        <!-- MEMOTECA -->
+                        <article
+                            class="education-project"
+                            data-description="Aplicação web para organizar pensamentos, frases e citações. Permite cadastrar, visualizar, editar e excluir conteúdos, com as informações armazenadas em uma API simulada usando JSON Server."
+                            data-technologies="HTML5, CSS3, JavaScript, Axios, API REST, JSON Server, Node.js"
+                        >
+
                             <div class="education-project-image">
-                                <video src="src/assets/videos/memoteca.mp4" muted loop playsinline preload="metadata"></video>
+
+                                <video
+                                    src="src/assets/videos/memoteca.mp4"
+                                    muted
+                                    loop
+                                    playsinline
+                                    preload="none"
+                                ></video>
+
                             </div>
+
                             <p>Memoteca</p>
+
                         </article>
 
-                        <article class="education-project" data-description="Aplicação web para adicionar e organizar produtos que precisam ser comprados. Cada item recebe a data e o horário de criação, podendo ser marcado como concluído por meio de um checkbox." data-technologies="HTML5, CSS3, JavaScript">
+
+                        <!-- LISTA DE COMPRAS -->
+                        <article
+                            class="education-project"
+                            data-description="Aplicação web para adicionar e organizar produtos que precisam ser comprados. Cada item recebe a data e o horário de criação, podendo ser marcado como concluído por meio de um checkbox."
+                            data-technologies="HTML5, CSS3, JavaScript"
+                        >
+
                             <div class="education-project-image">
-                                <video src="src/assets/videos/lista de compras.mp4" muted loop playsinline preload="metadata"></video>
+
+                                <video
+                                    src="src/assets/videos/lista de compras.mp4"
+                                    muted
+                                    loop
+                                    playsinline
+                                    preload="none"
+                                ></video>
+
                             </div>
-                            <p>Lista de compras dinâmica</p>
+
+                            <p>
+                                Lista de compras dinâmica
+                            </p>
+
                         </article>
 
                     </div>
 
                 </div>
+
             </article>
+
         </section>
+
+
+        <!-- HABILIDADES -->
         <section id="skills" class="skills container">
 
             <div class="skills-heading">
-                <span class="skills-eyebrow">Stack & Conhecimentos</span>
 
-                <h3 class="section-title">
+                <span class="skills-eyebrow">
+                    Stack & Conhecimentos
+                </span>
+
+                <h2 class="section-title">
                     Tecnologias & Ferramentas
-                </h3>
+                </h2>
 
                 <p class="skills-intro">
                     Tecnologias que utilizo nos meus estudos e projetos,
                     com foco principal no desenvolvimento Front-End.
                 </p>
+
             </div>
 
 
+            <!-- FOCO PRINCIPAL -->
             <div class="skills-group">
 
                 <div class="skills-group-header">
+
                     <div>
-                        <span class="skills-group-label">Foco principal</span>
-                        <h4>Tecnologias Front-End</h4>
+
+                        <span class="skills-group-label">
+                            Foco principal
+                        </span>
+
+                        <h3>
+                            Tecnologias Front-End
+                        </h3>
+
                     </div>
 
                     <p>
                         Ferramentas que fazem parte do meu aprendizado
                         e desenvolvimento de interfaces web.
                     </p>
+
                 </div>
 
 
                 <div class="skills-grid skills-grid-primary">
+
 
                     <article class="skill-card skill-card-primary">
 
@@ -310,7 +609,7 @@
                         </div>
 
                         <div class="skill-info">
-                            <h5>HTML5</h5>
+                            <h4>HTML5</h4>
                             <p>Estruturação e semântica de páginas web.</p>
                         </div>
 
@@ -324,7 +623,7 @@
                         </div>
 
                         <div class="skill-info">
-                            <h5>CSS3</h5>
+                            <h4>CSS3</h4>
                             <p>Layouts responsivos, Flexbox e Grid.</p>
                         </div>
 
@@ -338,7 +637,7 @@
                         </div>
 
                         <div class="skill-info">
-                            <h5>JavaScript</h5>
+                            <h4>JavaScript</h4>
                             <p>Lógica, DOM, eventos e interatividade.</p>
                         </div>
 
@@ -352,7 +651,7 @@
                         </div>
 
                         <div class="skill-info">
-                            <h5>Git</h5>
+                            <h4>Git</h4>
                             <p>Versionamento e organização de projetos.</p>
                         </div>
 
@@ -366,7 +665,7 @@
                         </div>
 
                         <div class="skill-info">
-                            <h5>GitHub</h5>
+                            <h4>GitHub</h4>
                             <p>Repositórios e controle de versões.</p>
                         </div>
 
@@ -377,16 +676,21 @@
             </div>
 
 
+            <!-- CONHECIMENTOS COMPLEMENTARES -->
             <div class="skills-group skills-group-secondary">
 
                 <div class="skills-group-header">
 
                     <div>
+
                         <span class="skills-group-label">
                             Conhecimentos complementares
                         </span>
 
-                        <h4>Outras tecnologias</h4>
+                        <h3>
+                            Outras tecnologias
+                        </h3>
+
                     </div>
 
                     <p>
@@ -399,6 +703,7 @@
 
                 <div class="skills-grid skills-grid-secondary">
 
+
                     <article class="skill-card">
 
                         <div class="skill-icon">
@@ -406,12 +711,16 @@
                         </div>
 
                         <div class="skill-info">
+
                             <div class="skill-title-row">
-                                <h5>React</h5>
+                                <h4>React</h4>
                                 <span class="skill-tag">Contato inicial</span>
                             </div>
 
-                            <p>Introdução a componentes e props.</p>
+                            <p>
+                                Introdução a componentes e props.
+                            </p>
+
                         </div>
 
                     </article>
@@ -424,7 +733,7 @@
                         </div>
 
                         <div class="skill-info">
-                            <h5>Node.js</h5>
+                            <h4>Node.js</h4>
                             <p>Integração entre Front-End e APIs.</p>
                         </div>
 
@@ -438,7 +747,7 @@
                         </div>
 
                         <div class="skill-info">
-                            <h5>Python</h5>
+                            <h4>Python</h4>
                             <p>Criação de APIs e integração com aplicações Front-End.</p>
                         </div>
 
@@ -452,7 +761,7 @@
                         </div>
 
                         <div class="skill-info">
-                            <h5>PostgreSQL</h5>
+                            <h4>PostgreSQL</h4>
                             <p>Criação de tabelas e armazenamento de dados.</p>
                         </div>
 
@@ -466,93 +775,94 @@
                         </div>
 
                         <div class="skill-info">
-                            <h5>MongoDB</h5>
+                            <h4>MongoDB</h4>
                             <p>Armazenamento de dados em projetos.</p>
                         </div>
 
                     </article>
-                    
+
+
                     <article class="skill-card">
-                    
+
                         <div class="skill-icon">
                             <i class="devicon-django-plain"></i>
                         </div>
-                    
+
                         <div class="skill-info">
-                            <h5>Django</h5>
+                            <h4>Django</h4>
                             <p>Desenvolvimento Back-End de aplicações web com Python.</p>
                         </div>
-                    
+
                     </article>
-                    
-                    
+
+
                     <article class="skill-card">
-                    
+
                         <div class="skill-icon">
                             <i class="devicon-djangorest-plain"></i>
                         </div>
-                    
+
                         <div class="skill-info">
-                            <h5>Django REST Framework</h5>
+                            <h4>Django REST Framework</h4>
                             <p>Construção de APIs REST para integração entre aplicações.</p>
                         </div>
-                    
+
                     </article>
-                    
-                    
+
+
                     <article class="skill-card">
-                    
+
                         <div class="skill-icon">
                             <i class="devicon-mysql-original"></i>
                         </div>
-                    
+
                         <div class="skill-info">
-                            <h5>MySQL</h5>
+                            <h4>MySQL</h4>
                             <p>Armazenamento e gerenciamento de dados relacionais.</p>
                         </div>
-                    
+
                     </article>
-                    
-                    
+
+
                     <article class="skill-card">
-                    
+
                         <div class="skill-icon">
                             <i class="devicon-azuresqldatabase-plain"></i>
                         </div>
-                    
+
                         <div class="skill-info">
-                            <h5>SQL</h5>
+                            <h4>SQL</h4>
                             <p>Consultas e manipulação de dados em bancos relacionais.</p>
                         </div>
-                    
+
                     </article>
-                    
-                    
+
+
                     <article class="skill-card">
-                    
+
                         <div class="skill-icon">
                             <i class="devicon-swagger-plain"></i>
                         </div>
-                    
+
                         <div class="skill-info">
-                            <h5>Swagger / OpenAPI</h5>
+                            <h4>Swagger / OpenAPI</h4>
                             <p>Documentação e testes de endpoints de APIs.</p>
                         </div>
-                    
+
                     </article>
-                    
-                    
+
+
                     <article class="skill-card">
-                    
+
                         <div class="skill-icon skill-icon-text">
                             <span>JWT</span>
                         </div>
-                    
+
                         <div class="skill-info">
-                            <h5>JWT</h5>
+                            <h4>JWT</h4>
                             <p>Autenticação e controle de acesso utilizando tokens.</p>
                         </div>
-                    
+
                     </article>
 
                 </div>
@@ -560,138 +870,188 @@
             </div>
 
         </section>
+
     </main>
 
+
+    <!-- FOOTER -->
     <footer class="main-footer">
-    
+
         <div class="footer-container container">
-    
+
             <div class="footer-top">
-    
+
                 <div class="footer-brand">
-    
-                    <div class="footer-logo">K</div>
-    
+
+                    <div class="footer-logo">
+                        K
+                    </div>
+
                     <div class="footer-brand-text">
-                        <h3>Werbete Kauê</h3>
-    
+
+                        <h2>
+                            Werbete Kauê
+                        </h2>
+
                         <p>
                             Desenvolvedor Front-End em evolução,
                             criando interfaces modernas, responsivas
                             e funcionais.
                         </p>
+
                     </div>
-    
+
                 </div>
-    
-    
+
+
                 <div class="footer-links">
-    
+
                     <div class="footer-column">
+
                         <span>Navegação</span>
-    
+
                         <a href="#home">Início</a>
                         <a href="#education">Formação</a>
                         <a href="#skills">Tecnologias</a>
+
                     </div>
-    
-    
+
+
                     <div class="footer-column">
+
                         <span>Contato</span>
-    
-                        <a href="https://www.linkedin.com/in/werbete-kau%C3%AA-barbosa-ferreira-/" target="_blank"
-                            rel="noopener noreferrer">
+
+                        <a
+                            href="https://www.linkedin.com/in/werbete-kau%C3%AA-barbosa-ferreira-/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
                             LinkedIn
                         </a>
-    
-                        <a href="https://github.com/Werbete-Kaue" target="_blank" rel="noopener noreferrer">
+
+                        <a
+                            href="https://github.com/Werbete-Kaue"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
                             GitHub
                         </a>
-    
-                        <a href="mailto:werbetekau29@gmail.com" target="_blank" rel="noopener noreferrer">
+
+                        <a href="mailto:werbetekaue29@gmail.com">
                             werbetekaue29@gmail.com
                         </a>
+
                     </div>
-    
+
                 </div>
-    
+
             </div>
-    
-    
+
+
             <div class="footer-bottom">
-    
+
                 <p>
                     © 2026 <strong>Werbete Kauê</strong>.
                     Todos os direitos reservados.
                 </p>
-    
+
                 <span>
                     Front-End • São Luís, MA
                 </span>
-    
+
             </div>
-    
+
         </div>
-    
+
     </footer>
 
-    <div class="project-modal" id="projectModal">
 
-    <div class="project-modal-content">
+    <!-- MODAL DOS PROJETOS -->
+    <div
+        class="project-modal"
+        id="projectModal"
+        aria-hidden="true"
+    >
 
-        <button
-            class="project-modal-close"
-            id="projectModalClose"
-            aria-label="Fechar projeto"
+        <div
+            class="project-modal-content"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="projectModalTitle"
         >
-            &times;
-        </button>
 
-        <!-- Vídeo -->
-        <div class="project-modal-media">
-            <video
-                id="projectModalVideo"
-                controls
-                muted
-                loop
-                playsinline
-            ></video>
-        </div>
+            <button
+                class="project-modal-close"
+                id="projectModalClose"
+                type="button"
+                aria-label="Fechar projeto"
+            >
+                &times;
+            </button>
 
-        <!-- Informações do projeto -->
-        <div class="project-modal-info">
-        
-            <span class="project-modal-label">
-                Projeto
-            </span>
-        
-            <h3 id="projectModalTitle">
-                Nome do projeto
-            </h3>
-        
-            <p class="project-modal-description" id="projectModalDescription">
-                Descrição do projeto.
-            </p>
-        
-            <div class="project-modal-stack">
-        
-                <span class="project-modal-stack-title">
-                    Tecnologias utilizadas
-                </span>
-        
-                <div class="project-modal-technologies" id="projectModalTechnologies">
-                    <!-- Tecnologias inseridas pelo JavaScript -->
-                </div>
-        
+
+            <div class="project-modal-media">
+
+                <video
+                    id="projectModalVideo"
+                    controls
+                    muted
+                    loop
+                    playsinline
+                    preload="none"
+                ></video>
+
             </div>
-        
-        </div>
-        
-        </div>
-        
+
+
+            <div class="project-modal-info">
+
+                <span class="project-modal-label">
+                    Projeto
+                </span>
+
+                <h2 id="projectModalTitle">
+                    Nome do projeto
+                </h2>
+
+                <p
+                    class="project-modal-description"
+                    id="projectModalDescription"
+                >
+                    Descrição do projeto.
+                </p>
+
+
+                <div class="project-modal-stack">
+
+                    <span class="project-modal-stack-title">
+                        Tecnologias utilizadas
+                    </span>
+
+                    <div
+                        class="project-modal-technologies"
+                        id="projectModalTechnologies"
+                    >
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
 
-    <script type="module" src="src/js/modules/main.js"></script>
+    </div>
+
+
+    <!--
+        type="module" já é deferido por padrão:
+        não bloqueia a leitura do HTML.
+    -->
+    <script
+        type="module"
+        src="src/js/modules/main.js"
+    ></script>
+
 </body>
 
 </html>
